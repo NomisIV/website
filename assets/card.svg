@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1200"
+   height="630"
+   viewBox="0 0 1200 630"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="/home/simon/projects/nomisiv.com/static/assets/card.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="card.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     width="512px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="0.77771465"
+     inkscape:cx="660.91079"
+     inkscape:cy="214.08881"
+     inkscape:window-width="1975"
+     inkscape:window-height="1380"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="560"
+       y="240"
+       width="538.04565"
+       height="297.02654"
+       id="rect59671" />
+    <rect
+       x="147.80185"
+       y="76.263634"
+       width="374.82336"
+       height="72.898933"
+       id="rect6965" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#282828;fill-opacity:1;fill-rule:evenodd;stroke-width:10.4871"
+       id="rect38"
+       width="1200"
+       height="630"
+       x="0"
+       y="0" />
+    <text
+       xml:space="preserve"
+       id="text6963"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.7118px;line-height:1.25;font-family:Diosevka;-inkscape-font-specification:Diosevka;white-space:pre;shape-inside:url(#rect6965);fill:#d79921;fill-opacity:1;stroke:none"
+       transform="matrix(1.48108,0,0,1.48108,347.66446,5.629699)"><tspan
+         x="147.80273"
+         y="127.67859"
+         id="tspan121174"><tspan
+           style="font-weight:bold;-inkscape-font-specification:'Diosevka Bold'"
+           id="tspan121172"># Hello, Web!</tspan></tspan></text>
+    <image
+       preserveAspectRatio="none"
+       inkscape:svg-dpi="96"
+       width="400"
+       height="400"
+       style="image-rendering:optimizeQuality"
+       xlink:href="../../../../files/brand-assets/NomisIV/NomisIV.min.svg"
+       id="image49941"
+       x="120"
+       y="120" />
+    <text
+       xml:space="preserve"
+       id="text59669"
+       style="font-style:normal;font-weight:normal;font-size:32px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect59671);fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(48.614995,3.837365)"><tspan
+         x="560"
+         y="269.0112"
+         id="tspan121178"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121176">This is my personal website, </tspan></tspan><tspan
+         x="560"
+         y="309.19827"
+         id="tspan121182"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121180">where you can read about me
+</tspan></tspan><tspan
+         x="560"
+         y="349.38535"
+         id="tspan121186"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121184">and my projects.
+</tspan></tspan><tspan
+         x="560"
+         y="389.57242"
+         id="tspan121190"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121188">
+</tspan></tspan><tspan
+         x="560"
+         y="429.75949"
+         id="tspan121194"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121192">I also have a blog called
+</tspan></tspan><tspan
+         x="560"
+         y="469.94656"
+         id="tspan121198"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121196">&quot;No one asked&quot;, where I answer </tspan></tspan><tspan
+         x="560"
+         y="510.13364"
+         id="tspan121202"><tspan
+           style="font-family:Diosevka;-inkscape-font-specification:Diosevka;fill:#ebdbb2"
+           id="tspan121200">questions that no one asked.</tspan></tspan></text>
+    <rect
+       style="fill:#3c3836;fill-opacity:1;stroke-width:0.996869"
+       id="rect116873"
+       width="9.9399805"
+       height="270.98889"
+       x="573.93219"
+       y="248.79587"
+       ry="0" />
+  </g>
+</svg>

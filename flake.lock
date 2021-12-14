@@ -1,0 +1,93 @@
+{
+  "nodes": {
+    "diosevka": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "npmlock2nix": "npmlock2nix"
+      },
+      "locked": {
+        "lastModified": 1637082055,
+        "narHash": "sha256-vyJHOcYaIUjJrYZ21nTPkC/KUqqsdbtq4Ea8fltSr5c=",
+        "owner": "NomisIV",
+        "repo": "diosevka",
+        "rev": "463559eb6d664c22fd0866055999edadc27fb2b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NomisIV",
+        "repo": "diosevka",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1623875721,
+        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1628845335,
+        "narHash": "sha256-eNyOSej++O4VQ1kwDROK8379RLLQvJLJylVe3RHhDtY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "95c7f7ed587025f4f65eaf2b623d09ff9333a963",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1637402687,
+        "narHash": "sha256-E9tUQNpYKrV7VqHnVm6EHUu2PVsLYoI21ZcBVBNibPc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "a03719be2e676041847e1b59dafa8ab668fa2d2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "npmlock2nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628671444,
+        "narHash": "sha256-2xpZVVpY3X6fQdXntIxpPzl5JHk72VD4kgWyrO2evT8=",
+        "owner": "tweag",
+        "repo": "npmlock2nix",
+        "rev": "c63a75e9e31ea5d7d6f94ee9ced41979908087fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tweag",
+        "repo": "npmlock2nix",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "diosevka": "diosevka",
+        "nixpkgs": "nixpkgs_2"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

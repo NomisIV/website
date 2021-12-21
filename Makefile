@@ -22,7 +22,7 @@ PAGES = \
 
 build: $(OUT)/style.css fonts $(OUT)/favicon.ico $(PAGES) assets
 
-$(OUT)/%.css: $(DATA)/pages/%.scss
+$(OUT)/%.css: $(DATA)/%.scss
 	mkdir -p $$(dirname $@)
 	sassc --style compressed $< $@
 
@@ -38,7 +38,7 @@ $(OUT)/favicon.ico: $(DATA)/favicon.svg
 	mkdir -p $$(dirname $@)
 	convert -resize 16x16 -background transparent $< $@
 
-$(OUT)/%.html: $(DATA)/pages/%.md
+$(OUT)/%.html: $(DATA)/%.md
 	mkdir -p $$(dirname $@)
 	cmark-gfm -e table -e autolink $< \
 		| $(DATA)/scripts/substitute $(DATA)/scripts \

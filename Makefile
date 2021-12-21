@@ -54,11 +54,4 @@ $(ERROR)/%.html: $(DATA)/errors/%.md
 		| minify --type html \
 		> $@
 
-$(BLOG)/%.html: $(DATA)/pages/blog/%.md
-	mkdir -p $$(dirname $@)
-	cmark-gfm $< \
-		| $(DATA)/scripts/substitute $(DATA)/scripts \
-		| $(DATA)/scripts/template $(DATA)/template.html $@ \
-		| minify --type html \
-		> $@
 

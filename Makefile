@@ -40,7 +40,7 @@ $(OUT)/favicon.ico: $(DATA)/favicon.svg
 
 $(OUT)/%.html: $(DATA)/pages/%.md
 	mkdir -p $$(dirname $@)
-	cmark-gfm $< \
+	cmark-gfm -e table -e autolink $< \
 		| $(DATA)/scripts/substitute $(DATA)/scripts \
 		| $(DATA)/scripts/template $(DATA)/template.html $@ \
 		| minify --type html \
@@ -48,7 +48,7 @@ $(OUT)/%.html: $(DATA)/pages/%.md
 
 $(ERROR)/%.html: $(DATA)/errors/%.md
 	mkdir -p $$(dirname $@)
-	cmark-gfm $< \
+	cmark-gfm -e table -e autolink $< \
 		| $(DATA)/scripts/substitute $(DATA)/scripts \
 		| $(DATA)/scripts/template $(DATA)/template.html $@ \
 		| minify --type html \

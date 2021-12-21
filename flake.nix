@@ -27,7 +27,7 @@
       '';
       makeFlags = [
         "DIOSEVKA=${diosevka.packages.x86_64-linux.woff2}/share/fonts/iosevka/woff2"
-        "DATA=."
+        "DATA=src"
         "OUT=build"
       ];
       installPhase = ''

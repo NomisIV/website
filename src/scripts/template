@@ -18,4 +18,4 @@ html = template_html
 html = html.replace("{title}", title)
 html = html.replace("{body}", body)
 
-print(html)
+sys.stdout.write(html)

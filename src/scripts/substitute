@@ -20,4 +20,4 @@ for cap in captures:
         exit(1)
     body = body.replace(f"${{{cap}}}", out)
 
-print(body)
+sys.stdout.write(body)

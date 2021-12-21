@@ -24,6 +24,15 @@ h3::before {
 	color: #458588;
 }
 
+th, td {
+	border-color: #d5c4a1;
+}
+
+th {
+	background-color: #d5c4a1;
+	color: #d79921;
+}
+
 @media (prefers-color-scheme: dark) {
 	html, body {
 		color: #ebdbb2;
@@ -40,5 +49,13 @@ h3::before {
 
 	a:visited {
 		color: #d3869b;
+	}
+
+	th, td {
+		border-color: #3c3836;
+	}
+		
+	th {
+		background-color: #3c3836;
 	}
 }

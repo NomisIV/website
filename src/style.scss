@@ -36,6 +36,10 @@ li::marker {
 	font-weight: bold;
 }
 
+li {
+	padding: 2px 4px;
+}
+
 img {
 	display: block;
 	max-height: calc(512px / 3);
@@ -44,4 +48,14 @@ img {
 
 code {
 	padding: 0 6px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border-width: 2px;
+	border-style: solid;
+	padding: 2px 4px;
 }

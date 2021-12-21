@@ -20,11 +20,15 @@ PAGES = \
 	$(BLOG_PAGES) \
 	$(ERROR_PAGES)
 
-build: $(OUT)/style.css fonts $(OUT)/favicon.ico $(PAGES) assets
+build: $(OUT)/robots.txt $(OUT)/style.css fonts $(OUT)/favicon.ico $(PAGES) assets
 
 $(OUT)/%.css: $(DATA)/%.scss
 	mkdir -p $$(dirname $@)
 	sassc --style compressed $< $@
+
+$(OUT)/robots.txt: $(DATA)/robots.txt
+	mkdir -p $$(dirname $@)
+	cp $< $@
 
 fonts: $(DIOSEVKA)/*
 	mkdir -p $(OUT)/assets/fonts

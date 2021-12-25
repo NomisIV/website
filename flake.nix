@@ -24,7 +24,7 @@
       src = self;
       buildInputs = dependencies;
       postPatch = ''
-        patchShebangs ./scripts
+        patchShebangs ./src/scripts
       '';
       makeFlags = [
         "DATA=src"

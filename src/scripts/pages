@@ -44,7 +44,7 @@ else:
         sorted(
             filter(
                 is_page,
-                os.listdir(os.path.join(data_dir, "pages", path))
+                os.listdir(os.path.join(data_dir, path))
             )
         )
     )

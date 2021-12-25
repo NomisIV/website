@@ -20,7 +20,7 @@ PAGES = \
 	$(BLOG_PAGES) \
 	$(ERROR_PAGES)
 
-build: $(OUT)/robots.txt $(OUT)/style.css fonts $(OUT)/favicon.ico $(PAGES) assets
+build: $(OUT)/robots.txt $(OUT)/style.css $(OUT)/favicon.ico $(PAGES) assets
 
 $(OUT)/%.css: $(DATA)/%.scss
 	mkdir -p $$(dirname $@)
@@ -30,13 +30,9 @@ $(OUT)/robots.txt: $(DATA)/robots.txt
 	mkdir -p $$(dirname $@)
 	cp $< $@
 
-fonts: $(DIOSEVKA)/*
-	mkdir -p $(OUT)/assets/fonts
-	cp $(DIOSEVKA)/* $(OUT)/assets/fonts
-
 assets:
-	mkdir -p $$(dirname $@)
-	cp $(DATA)/assets/* $(OUT)/assets
+	mkdir -p $(OUT)/assets
+	cp -r $(DATA)/assets/* $(OUT)/assets
 
 $(OUT)/favicon.ico: $(DATA)/favicon.svg
 	mkdir -p $$(dirname $@)

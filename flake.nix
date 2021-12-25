@@ -16,6 +16,7 @@
       python3
       which
       minify
+      diosevka.packages.x86_64-linux.woff2
     ];
 
     website = pkgs.stdenv.mkDerivation {
@@ -26,12 +27,12 @@
         patchShebangs ./scripts
       '';
       makeFlags = [
-        "DIOSEVKA=${diosevka.packages.x86_64-linux.woff2}/share/fonts/iosevka/woff2"
         "DATA=src"
         "OUT=build"
       ];
       installPhase = ''
         cp -r build $out
+        cp -r ${diosevka.packages.x86_64-linux.woff2}/share/fonts/iosevka/woff2 $out/assets/fonts
       '';
     };
   in {

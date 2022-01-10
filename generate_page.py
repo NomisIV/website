@@ -5,13 +5,16 @@ import subprocess
 import re
 import css_html_js_minify
 
+data_dir = os.environ["DATA"]
+assert data_dir is not None, "DATA directory is not set"
+
 def substitute(input):
     pattern = r"\$\{(.*?)\}"
     captures = re.findall(pattern, input)
     # TODO: Make this some kind of map instead of subprocesses?
     for cap in captures:
         cmd = cap.split(" ")
-        cmd = [ os.path.join(os.getcwd(), "src", "scripts", cmd[0]) ] + cmd[1::]
+        cmd = [ "python", os.path.join(data_dir, "scripts", cmd[0]) ] + cmd[1::]
         try:
             out = subprocess.check_output(cmd).decode("utf-8").strip()
         except subprocess.CalledProcessError as err:
@@ -26,7 +29,7 @@ def template(input):
     if title == "Index":
         title = "NomisIV"
 
-    with open(os.path.join(os.getcwd(), "template.html"), "r") as file:
+    with open(os.path.join(data_dir, "template.html"), "r") as file:
         template_html = file.read()
 
     html = template_html

@@ -40,11 +40,7 @@ $(OUT)/favicon.ico: $(DATA)/favicon.svg
 
 $(OUT)/%.html: $(DATA)/%.md
 	mkdir -p $$(dirname $@)
-	cmark-gfm -e table -e autolink $< \
-		| $(DATA)/scripts/substitute $(DATA)/scripts \
-		| $(DATA)/scripts/template $(DATA)/template.html $@ \
-		| minify --type html \
-		> $@
+	python generate_page.py $< > $@
 
 $(ERROR)/%.html: $(DATA)/errors/%.md
 	mkdir -p $$(dirname $@)
@@ -54,4 +50,6 @@ $(ERROR)/%.html: $(DATA)/errors/%.md
 		| minify --type html \
 		> $@
 
+	mkdir -p $$(dirname $@)
+	python generate_page.py $< > $@
 

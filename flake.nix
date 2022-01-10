@@ -32,7 +32,7 @@
       ];
       installPhase = ''
         cp -r build $out
-        cp -r ${diosevka.packages.x86_64-linux.woff2}/share/fonts/iosevka/woff2 $out/assets/fonts
+        cp -r ${diosevka.packages.x86_64-linux.woff2}/share/fonts/diosevka/woff2 $out/assets/fonts
       '';
     };
   in {

@@ -17,10 +17,16 @@ PAGES = \
 	$(OUT)/about.html \
 	$(OUT)/lists.html \
 	$(OUT)/projects.html \
+	$(OUT)/cv-se.html \
 	$(BLOG_PAGES) \
 	$(ERROR_PAGES)
 
-build: $(OUT)/robots.txt $(OUT)/style.css $(OUT)/favicon.ico $(PAGES) assets
+build: $(OUT)/robots.txt \
+	$(OUT)/style.css \
+	$(OUT)/favicon.ico \
+	$(PAGES) \
+	assets \
+	$(OUT)/cv-se.pdf
 
 $(OUT)/%.css: $(DATA)/%.scss
 	mkdir -p $$(dirname $@)
@@ -53,3 +59,9 @@ $(ERROR)/%.html: $(DATA)/errors/%.md
 	mkdir -p $$(dirname $@)
 	python generate_page.py $< > $@
 
+$(OUT)/%.pdf: $(DATA)/%.md $(OUT)/pdf.css
+	pandoc \
+		<<< $$(cat $< | $(DATA)/scripts/substitute $(DATA)/scripts) \
+		-o $@ \
+		--pdf-engine wkhtmltopdf \
+		--css=$(OUT)/pdf.css

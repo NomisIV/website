@@ -1,23 +1,19 @@
-# Projects in the cradle
-
-## `tim` - Terminal Interface Mail client
-
-There isn't a single non-sucky email client for the terminal.
-Most of them are just unnecessarily complicated, or terrible to configure.
-So I decided to write my own in rust :)
-
-### Features
-
-- It's configured *sensibly* in TOML
-- First class multi account support
-- IMAP + SMTP only. (POP is kinda dead)
-- Just works. (Not yet though)
-
 # Current Projects
 
 These are (most of) my programming projects,
 where I create what I want, how I want.
 They are roughly arranged in chronological order.
+
+## `sand` - A sandbox programming language
+
+[Link to GitHub](https://github.com/NomisIV/sand)
+
+I'm writing my own programming language called sand.
+I think it will be a purely functional and object oriented language,
+if that isn't an oxymoron.
+The syntax kind of looks like a mix of Ruby and Rust.
+Currently I have only implemented a proof-of-concept parser and interpreter,
+which is advanced enough to run a simple hello world program.
 
 ## This website
 
@@ -39,6 +35,10 @@ It's a *window swallower*, which's purpose is to "swallow" / hide windows.
 The main purpose of this program is to hide a terminal window when starting
 a graphical program in it.
 
+# Old projects
+
+I leave no guarantees on the quality of the code!
+
 ## `pioneerctl` - A remote control for *some* pioneer recievers
 
 [Link to GitHub](https://github.com/NomisIV/pioneerctl)
@@ -51,10 +51,6 @@ because it's the only one I have to test on.
 This project started as a school project,
 written as a graphical and java-based program,
 and inspired by the android app [mkulesh/onpc](https://github.com/mkulesh/onpc).
-
-# Old projects
-
-I leave no guarantees on the quality of the code!
 
 ## D-LAN 2021
 

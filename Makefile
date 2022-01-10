@@ -14,9 +14,9 @@ BLOG_PAGES = \
 PAGES = \
 	$(OUT)/index.html \
 	$(OUT)/contact.html \
-	$(OUT)/about-me.html \
-	$(OUT)/my-lists.html \
-	$(OUT)/my-projects.html \
+	$(OUT)/about.html \
+	$(OUT)/lists.html \
+	$(OUT)/projects.html \
 	$(BLOG_PAGES) \
 	$(ERROR_PAGES)
 

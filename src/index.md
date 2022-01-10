@@ -6,7 +6,10 @@
 
 These are the pages this site holds for now:
 
-${pages}
+- [About me](about)
+- [Contact me](contact)
+- [My lists](lists)
+- [My projects](projects)
 
 ## No one asked
 

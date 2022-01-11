@@ -48,13 +48,9 @@ $(OUT)/%.html: $(DATA)/%.md
 	mkdir -p $$(dirname $@)
 	python generate_page.py $< > $@
 
-$(ERROR)/%.html: $(DATA)/errors/%.md
+$(OUT)/%.jpg: $(DATA)/%.jpg
 	mkdir -p $$(dirname $@)
-	cmark-gfm -e table -e autolink $< \
-		| $(DATA)/scripts/substitute $(DATA)/scripts \
-		| $(DATA)/scripts/template $(DATA)/template.html $@ \
-		| minify --type html \
-		> $@
+	cp $< $@
 
 	mkdir -p $$(dirname $@)
 	python generate_page.py $< > $@

@@ -11,11 +11,12 @@
 
     dependencies = with pkgs; [
       sassc # TODO: Package a new rust sass library instead
-      cmark-gfm
       imagemagick
       python3
-      which
-      minify
+      python39Packages.cmarkgfm
+      python39Packages.css-html-js-minify
+      pandoc
+      wkhtmltopdf
       diosevka.packages.x86_64-linux.woff2
     ];
 

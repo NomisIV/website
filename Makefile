@@ -52,6 +52,7 @@ $(OUT)/%.jpg: $(DATA)/%.jpg
 	mkdir -p $$(dirname $@)
 	cp $< $@
 
+$(ERROR)/%.html: $(DATA)/errors/%.md
 	mkdir -p $$(dirname $@)
 	python generate_page.py $< > $@
 

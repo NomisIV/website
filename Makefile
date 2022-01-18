@@ -57,7 +57,7 @@ $(OUT)/%.jpg: $(DATA)/%.jpg
 
 $(OUT)/%.pdf: $(DATA)/%.md $(OUT)/pdf.css
 	pandoc \
-		<<< $$(cat $< | $(DATA)/scripts/substitute $(DATA)/scripts) \
+		<<< $$(python generate_page.py -s $<) \
 		-o $@ \
 		--pdf-engine wkhtmltopdf \
 		--css=$(OUT)/pdf.css

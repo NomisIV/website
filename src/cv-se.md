@@ -2,15 +2,15 @@
 
 ## Personuppgifter
 
-|                    |                              |
-| ------------------:|:---------------------------- |
-| **Namn:**          | Simon Gutgesell              |
-| **Ålder:**         | ${my age} år                 |
-| **Telefonnummer:** | 072-40 60 115                |
-| **E-mail:**        | ${my email}                  |
-| **Adress:**        | Skogslyckegatan 86 Linköping |
-| **GitHub:**        | https://github.com/NomisIV   |
-| **Talar:**         | Svenska, Engelska            |
+|              |                              |
+| ------------:|:---------------------------- |
+| **Namn:**    | Simon Gutgesell              |
+| **Ålder:**   | ${my age} år                 |
+| **Telefon:** | 072-40 60 115                |
+| **E-mail:**  | ${my email}                  |
+| **Adress:**  | Skogslyckegatan 86 Linköping |
+| **GitHub:**  | https://github.com/NomisIV   |
+| **Talar:**   | Svenska, Engelska            |
 
 ## Kort om mig
 

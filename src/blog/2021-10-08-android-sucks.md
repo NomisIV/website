@@ -1,3 +1,4 @@
+<!-- Posted 2021-10-08 -->
 # Android sucks
 
 About a week ago I updated my phone,

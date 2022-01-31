@@ -40,7 +40,7 @@
 
 - **NeoVim** - *The* text editor - [link](https://neovim.io)
 - **Iosevka** - A build-it-yourself font - [link](https://typeof.net/Iosevka)
-- **Gentoo** - Linux distribution - [link](https://gentoo.org)
+- **Nix** - A build system (but also a lot more) - [link](https://nixos.org)
 - **Rust** - Programming language - [link](https://rust-lang.org)
 - **zoxide** - Modern alternative to the `cd` command - [link](https://github.com/ajeetdsouza/zoxide)
 

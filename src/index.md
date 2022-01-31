@@ -18,7 +18,13 @@ It's about all the things I want to answer, but I never get asked about.
 
 Here are my blog posts:
 
-${pages blog}
+$blog$
+
+<!-- ## My gallery -->
+<!---->
+<!-- Here are my gallery posts: -->
+<!---->
+<!-- ${pages gallery} -->
 
 ## Other cool websites like mine:
 

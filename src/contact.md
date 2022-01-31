@@ -2,7 +2,7 @@
 
 I usually go by the name "NomisIV" online.
 
-- **Mail:** ${my email}
+- **Mail:** $email$
 - **Discord:** NomisIV#4554
 - **Matrix:** @nomisiv:matrix.org
 - **Telegram:** @NomisIV

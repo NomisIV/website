@@ -1,5 +1,88 @@
-@import "diosevka";
-@import "gruvbox";
+$diosevka-font-path: "/assets/fonts";
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-regular.woff2) format("woff2");
+	font-family: "Diosevka";
+}
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-bold.woff2) format("woff2");
+	font-family: "Diosevka";
+	font-weight: bold;
+}
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-italic.woff2) format("woff2");
+	font-family: "Diosevka";
+	font-style: italic;
+}
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-bolditalic.woff2) format("woff2");
+	font-family: "Diosevka";
+	font-weight: bold;
+	font-style: italic;
+}
+
+* {
+	font-family: "Diosevka";
+}
+
+html, body {
+	color: #3c3836;
+	background-color: #fbf1c7;
+}
+
+a {
+	color: #b16286;
+	&:visited {
+		color: #8f3f71;
+	}
+}
+
+h1, h1::before, li::marker {
+	color: #d79921;
+}
+
+h2::before {
+	color: #98971a;
+}
+
+h3::before {
+	color: #458588;
+}
+
+th, td {
+	border-color: #d5c4a1;
+}
+
+th {
+	background-color: #d5c4a1;
+	color: #d79921;
+}
+
+@media (prefers-color-scheme: dark) {
+	html, body {
+		color: #ebdbb2;
+		background-color: #282828;
+	}
+
+	code {
+		background-color: #3c3836;
+	}
+
+	a:visited {
+		color: #d3869b;
+	}
+
+	th, td {
+		border-color: #3c3836;
+	}
+		
+	th {
+		background-color: #3c3836;
+	}
+}
 
 pre, img, code {
 	border-radius: 4px;
@@ -30,6 +113,10 @@ h3::before {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 2em;
+}
+
+blockquote::before {
+	content: "> ";
 }
 
 li::marker {

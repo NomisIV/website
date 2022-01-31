@@ -5,9 +5,9 @@
 |              |                              |
 | ------------:|:---------------------------- |
 | **Namn:**    | Simon Gutgesell              |
-| **Ålder:**   | ${my age} år                 |
+| **Ålder:**   | $age$ år                     |
 | **Telefon:** | 072-40 60 115                |
-| **E-mail:**  | ${my email}                  |
+| **E-mail:**  | $email$                      |
 | **Adress:**  | Skogslyckegatan 86 Linköping |
 | **GitHub:**  | https://github.com/NomisIV   |
 | **Talar:**   | Svenska, Engelska            |

@@ -3,7 +3,7 @@
 ## Quick facts:
 
 - **First name:** Simon
-- **Age:** ${my age} years
+- **Age:** $age$ years
 - **Location:** Linköping, Sweden
 - **Occupation:** Studying at Linköpings University
 - **Favorite color:** #d79921 (the yellow color on this page)

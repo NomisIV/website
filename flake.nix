@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "A flake for generating the content of my website";
 
   inputs = {
     nixpkgs.url = github:nixos/nixpkgs;

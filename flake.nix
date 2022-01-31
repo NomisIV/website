@@ -20,20 +20,21 @@
         '';
       };
 
-      customHtmlTemplate = { title, body }: lib.htmlTemplate {
-        inherit title;
+      customHtmlTemplate = { title, body }: lib.htmlTemplate (let
+        description = pkgs.lib.strings.escapeXML "This is my personal website, where you can read about me and my projects. I also have a blog called \"No one asked\", where I answer questions that no one asked.";
+      in {
+        inherit title description;
         body = lib.substitute substitutions (lib.mdToHtml body);
         favicon = "/favicon.ico";
         stylesheets = [ "/style.css" ];
-        description = "My own website!"; # TODO
         themeColor = "#d79921";
         openGraph = {
+          inherit description;
           url = "nomisiv.com";
           title = title;
-          description = "My Own website!";
           image = "/assets/card.png";
         };
-      };
+      });
 
       customErrorHtmlTemplate = { title, body }: lib.htmlTemplate {
         inherit title;

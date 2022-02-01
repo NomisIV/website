@@ -54,6 +54,15 @@
           };
 
           blogPages = {
+            index = mkFile "/index.html" (customHtmlTemplate {
+              title = "No one asked";
+              body = substitute {
+                blog = builtins.concatStringsSep "\n" (
+                  builtins.map (value: "- [${value.name}](${value.link})") blogPagesFancy
+                  );
+                } ./src/blog/index.md;
+            });
+
             android-sucks = mkFile "/2021-10-08-android-sucks.html" (customHtmlTemplate {
               title = "Android Sucks";
               body = ./src/blog/2021-10-08-android-sucks.md;
@@ -79,11 +88,7 @@
         in {
           index = mkFile "/index.html" (customHtmlTemplate {
             title = "NomisIV";
-            body = substitute {
-              blog = builtins.concatStringsSep "\n" (
-                builtins.map (value: "- [${value.name}](${value.link})") blogPagesFancy
-              );
-            } ./src/index.md;
+            body = ./src/index.md;
           });
 
           about = mkFile "/about.html" (customHtmlTemplate {

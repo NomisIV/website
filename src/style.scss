@@ -1,3 +1,4 @@
+/* ======== FONT ======== */
 $diosevka-font-path: "/assets/fonts";
 
 @font-face {
@@ -28,6 +29,7 @@ $diosevka-font-path: "/assets/fonts";
 	font-family: "Diosevka";
 }
 
+/* ======== COLOR ======== */
 html, body {
 	color: #3c3836;
 	background-color: #fbf1c7;
@@ -84,19 +86,9 @@ th {
 	}
 }
 
+/* ======== STYLE ARTEFACTS ======== */
 pre, img, code {
 	border-radius: 4px;
-}
-
-html {
-	margin: 0;
-	padding: 0;
-}
-
-body {
-	max-width: 80ch; /* This is actually really nice */
-	margin: auto;
-	padding: 8px;
 }
 
 h1::before {
@@ -111,16 +103,32 @@ h3::before {
 	content: "### ";
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin-top: 2em;
+blockquote > p::before, blockquote > p::after {
+	content: "\"";
 }
 
-blockquote::before {
-	content: "> ";
+blockquote > p {
+	font-style: italic;
+	color: #928374;
 }
 
 li::marker {
 	font-weight: bold;
+}
+
+/* ======== LAYOUT ======== */
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	max-width: 80ch;
+	margin: 1em auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 2em;
 }
 
 li {

@@ -63,6 +63,14 @@ th {
 	color: #d79921;
 }
 
+blockquote > p {
+	color: #928374;
+}
+
+blockquote > p::before {
+	color: #d79921;
+}
+
 @media (prefers-color-scheme: dark) {
 	html, body {
 		color: #ebdbb2;
@@ -103,13 +111,12 @@ h3::before {
 	content: "### ";
 }
 
-blockquote > p::before, blockquote > p::after {
-	content: "\"";
+blockquote > p::before {
+	content: "> ";
 }
 
 blockquote > p {
 	font-style: italic;
-	color: #928374;
 }
 
 li::marker {

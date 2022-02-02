@@ -1,5 +1,7 @@
 # How I built this website
 
+**NOTE:** This blog post has been superseeded by [this one](/blog/2022-02-02-how-i-rebuilt-this-website) instead
+
 ## Starting a new web project
 
 The first thing to do when starting a new project is chosing a programming language.

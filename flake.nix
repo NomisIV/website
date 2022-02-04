@@ -51,6 +51,7 @@
             logo = mkFile "/nomisiv.svg" ./src/assets/nomisiv.svg;
             card = mkFile "/card.png" ./src/assets/card.png;
             diosevka = mkFile "/fonts/" (diosevka.packages.x86_64-linux.woff2 + "/share/fonts/diosevka/woff2");
+            memes = mkFile "/memes/" ./src/assets/memes;
           };
 
           blogPages = {
@@ -63,15 +64,39 @@
                 } ./src/blog/index.md;
             });
 
+            how-i-rebuilt-this-website = mkFile "/2022-02-02-how-i-rebuilt-this-website.html" (customHtmlTemplate {
+              title = "How I Rebuilt This Website";
+              body = ./src/blog/2022-02-02-how-i-rebuilt-this-website.md;
+            });
+
             android-sucks = mkFile "/2021-10-08-android-sucks.html" (customHtmlTemplate {
               title = "Android Sucks";
               body = ./src/blog/2021-10-08-android-sucks.md;
+            });
+
+            my-battlestation-2 = mkFile "/2021-09-18-my-battlestation-part-2.html" (customHtmlTemplate {
+              title = "My Battlestation";
+              body = ./src/blog/2021-09-18-my-battlestation-part-2.md;
+            });
+
+            my-battlestation-1 = mkFile "/2021-08-23-my-battlestation-part-1.html" (customHtmlTemplate {
+              title = "My Battlestation";
+              body = ./src/blog/2021-08-23-my-battlestation-part-1.md;
+            });
+
+            how-i-built-this-website = mkFile "/2021-06-05-how-i-built-this-website.html" (customHtmlTemplate {
+              title = "How I Built This Website";
+              body = ./src/blog/2021-06-05-how-i-built-this-website.md;
             });
           };
 
           # TODO: Somehow derive this from blogPages
           blogPagesFancy = [
+            { name = "2022-02-02 How I Rebuilt This Website"; link = "/blog/2022-02-02-how-i-rebuilt-this-website"; }
             { name = "2021-10-08 Android Sucks"; link = "/blog/2021-10-08-android-sucks"; }
+            { name = "2021-09-18 My Battlestation Part 2"; link = "/blog/2021-09-18-my-battlestation-part-2"; }
+            { name = "2021-08-23 My Battlestation Part 1"; link = "/blog/2021-08-23-my-battlestation-part-1"; }
+            { name = "2021-06-05 How I Built This Website"; link = "/blog/2021-06-05-how-i-built-this-website"; }
           ];
 
           errorPages = {

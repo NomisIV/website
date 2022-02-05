@@ -11,34 +11,33 @@
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       lib = import ./lib.nix { inherit pkgs; };
-
-      substitutions = {
-        age = toString 19; # TODO: Make sure this is up to date
-        # TODO: Make an obfuscator function for this
-        email = "<a href=\"&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#105;&#109;&#111;&#110;&#64;&#110;&#111;&#109;&#105;&#115;&#105;&#118;&#46;&#99;&#111;&#109;\">&#115;&#105;&#109;&#111;&#110;&#64;&#110;&#111;&#109;&#105;&#115;&#105;&#118;&#46;&#99;&#111;&#109;</a>";
-      };
-
-      customHtmlTemplate = { title, body }: lib.htmlTemplate (let
-        description = pkgs.lib.strings.escapeXML "This is my personal website, where you can read about me and my projects. I also have a blog called \"No one asked\", where I answer questions that no one asked.";
-      in {
-        inherit title description;
-        body = lib.substitute substitutions (lib.mdToHtml body);
-        favicon = "/favicon.ico";
-        stylesheets = [ "/style.css" ];
-        themeColor = "#d79921";
-        openGraph = {
-          inherit description;
-          url = "nomisiv.com";
-          title = title;
-          image = "/assets/card.png";
-        };
-      });
     in
     with lib;
     {
       defaultPackage.x86_64-linux = mkSite {
         base_url = "nomisiv.com";
         pages = let
+          substitutions = {
+            age = toString 19; # TODO: Make sure this is up to date
+            email = builtins.readFile ./email.html;
+          };
+
+          customHtmlTemplate = { title, body, extraSubs ? { } }: htmlTemplate (let
+            description = pkgs.lib.strings.escapeXML (builtins.readFile ./description.txt);
+          in {
+            inherit title description;
+            body = mdToHtml (substitute (substitutions // extraSubs) body);
+            favicon = "/favicon.ico";
+            stylesheets = [ "/style.css" ];
+            themeColor = "#d79921";
+            openGraph = {
+              inherit description;
+              url = "nomisiv.com";
+              title = title;
+              image = "/assets/card.png";
+            };
+          });
+
           assetsPages = {
             logo = mkFile "/nomisiv.svg" ./src/assets/nomisiv.svg;
             card = mkFile "/card.png" ./src/assets/card.png;
@@ -57,11 +56,12 @@
           blogPages = {
             index = mkFile "/index.html" (customHtmlTemplate {
               title = "No one asked";
-              body = substitute {
+              body = ./src/blog/index.md;
+              extraSubs = {
                 blog = builtins.concatStringsSep "\n" (
                   map (value: "- [${value.date} ${value.title}](/blog${value.link})") blogPagesList
-                  );
-                } ./src/blog/index.md;
+                );
+              };
             });
           } // builtins.listToAttrs (map (blogPost: {
             name = blogPost.date;

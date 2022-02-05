@@ -54,50 +54,30 @@
             memes = mkFile "/memes/" ./src/assets/memes;
           };
 
+          blogPagesList = [
+            { date = "2022-02-02"; title = "How I Rebuilt This Website"; link = "/2022-02-02-how-i-rebuilt-this-website"; }
+            { date = "2021-10-08"; title = "Android Sucks";              link = "/2021-10-08-android-sucks";              }
+            { date = "2021-09-18"; title = "My Battlestation Part 2";    link = "/2021-09-18-my-battlestation-part-2";    }
+            { date = "2021-08-23"; title = "My Battlestation Part 1";    link = "/2021-08-23-my-battlestation-part-1";    }
+            { date = "2021-06-05"; title = "How I Built This Website";   link = "/2021-06-05-how-i-built-this-website";   }
+          ];
+
           blogPages = {
             index = mkFile "/index.html" (customHtmlTemplate {
               title = "No one asked";
               body = substitute {
                 blog = builtins.concatStringsSep "\n" (
-                  builtins.map (value: "- [${value.name}](${value.link})") blogPagesFancy
+                  map (value: "- [${value.date} ${value.title}](/blog${value.link})") blogPagesList
                   );
                 } ./src/blog/index.md;
             });
-
-            how-i-rebuilt-this-website = mkFile "/2022-02-02-how-i-rebuilt-this-website.html" (customHtmlTemplate {
-              title = "How I Rebuilt This Website";
-              body = ./src/blog/2022-02-02-how-i-rebuilt-this-website.md;
+          } // builtins.listToAttrs (map (blogPost: {
+            name = blogPost.date;
+            value = mkFile "${blogPost.link}.html" (customHtmlTemplate {
+              title = blogPost.title;
+              body = ./src/blog + blogPost.link + ".md";
             });
-
-            android-sucks = mkFile "/2021-10-08-android-sucks.html" (customHtmlTemplate {
-              title = "Android Sucks";
-              body = ./src/blog/2021-10-08-android-sucks.md;
-            });
-
-            my-battlestation-2 = mkFile "/2021-09-18-my-battlestation-part-2.html" (customHtmlTemplate {
-              title = "My Battlestation";
-              body = ./src/blog/2021-09-18-my-battlestation-part-2.md;
-            });
-
-            my-battlestation-1 = mkFile "/2021-08-23-my-battlestation-part-1.html" (customHtmlTemplate {
-              title = "My Battlestation";
-              body = ./src/blog/2021-08-23-my-battlestation-part-1.md;
-            });
-
-            how-i-built-this-website = mkFile "/2021-06-05-how-i-built-this-website.html" (customHtmlTemplate {
-              title = "How I Built This Website";
-              body = ./src/blog/2021-06-05-how-i-built-this-website.md;
-            });
-          };
-
-          # TODO: Somehow derive this from blogPages
-          blogPagesFancy = [
-            { name = "2022-02-02 How I Rebuilt This Website"; link = "/blog/2022-02-02-how-i-rebuilt-this-website"; }
-            { name = "2021-10-08 Android Sucks"; link = "/blog/2021-10-08-android-sucks"; }
-            { name = "2021-09-18 My Battlestation Part 2"; link = "/blog/2021-09-18-my-battlestation-part-2"; }
-            { name = "2021-08-23 My Battlestation Part 1"; link = "/blog/2021-08-23-my-battlestation-part-1"; }
-            { name = "2021-06-05 How I Built This Website"; link = "/blog/2021-06-05-how-i-built-this-website"; }
-          ];
+          }) blogPagesList);
 
           errorPages = {
             e404 = mkFile "/404.html" (customErrorHtmlTemplate {

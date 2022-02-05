@@ -33,14 +33,6 @@
           image = "/assets/card.png";
         };
       });
-
-      customErrorHtmlTemplate = { title, body }: lib.htmlTemplate {
-        inherit title;
-        body = lib.mdToHtml body;
-        favicon = "/favicon.ico";
-        stylesheets = [ "/style.css" ];
-        themeColor = "#cc241d";
-      };
     in
     with lib;
     {
@@ -79,17 +71,21 @@
             });
           }) blogPagesList);
 
-          errorPages = {
-            e404 = mkFile "/404.html" (customErrorHtmlTemplate {
-              title = "404 Not Found";
-              body = ./src/errors/404.md;
-            });
+          errorPagesList = [
+            { code = 404; message = "Not Found";             }
+            { code = 500; message = "Internal server Error"; }
+          ];
 
-            e500 = mkFile "/500.html" (customErrorHtmlTemplate {
-              title = "500 Internal Server Error";
-              body = ./src/errors/500.md;
+          errorPages = builtins.listToAttrs (map (errorPage: {
+            name = "e${toString errorPage.code}";
+            value = mkFile "/${toString errorPage.code}.html" (htmlTemplate {
+              title = "${toString errorPage.code} ${errorPage.message}";
+              body = mdToHtml (./src/errors + ("/" + toString errorPage.code) + ".md");
+              favicon = "/favicon.ico";
+              stylesheets = [ "/style.css" ];
+              themeColor = "#cc241d";
             });
-          };
+          }) errorPagesList);
         in {
           index = mkFile "/index.html" (customHtmlTemplate {
             title = "NomisIV";

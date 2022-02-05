@@ -1,11 +1,13 @@
 { pkgs }:
+with pkgs;
+with lib;
 rec {
   mkSite = {
     base_url,
     pages,
     preGen ? "",
     postGen ? "",
-  }: pkgs.runCommand base_url {} (with pkgs.lib; let
+  }: runCommand base_url {} (let
     genPageList = attrsets.mapAttrsToList ( _name: value: ''
       mkdir -p $(dirname $out${value.path})
       cp -r ${value.file} $out${value.path}
@@ -22,13 +24,13 @@ rec {
   mkFile = path: file: { inherit path file; };
   mkFolder = path: files: {
     inherit path;
-    file = pkgs.runCommand path {} (let
-      genPageList = pkgs.lib.attrsets.mapAttrsToList ( _name: value: ''
+    file = runCommand path {} (let
+      genPageList = attrsets.mapAttrsToList ( _name: value: ''
         mkdir -p $(dirname $out${value.path})
         cp -r ${value.file} $out${value.path}
       '') files;
 
-      genStr = pkgs.lib.concatStringsSep "\n" (genPageList);
+      genStr = concatStringsSep "\n" (genPageList);
     in ''
       mkdir $out
       ${genStr}
@@ -38,18 +40,18 @@ rec {
   substitute =
     substitutions:
     inFile:
-    pkgs.runCommand
+    runCommand
     ((fileName inFile) + ".substituted")
     {}
     (let
-      nameFn = name: pkgs.lib.strings.escapeShellArg ("$" + name + "$");
-      valueFn = value: pkgs.lib.strings.escapeShellArg value;
+      nameFn = name: strings.escapeShellArg ("$" + name + "$");
+      valueFn = value: strings.escapeShellArg value;
 
       mapFn = name: value: "--replace ${nameFn name} ${valueFn value}";
 
-      subsList = pkgs.lib.mapAttrsToList mapFn substitutions;
+      subsList = mapAttrsToList mapFn substitutions;
 
-      subsStr = pkgs.lib.concatStringsSep " " subsList;
+      subsStr = concatStringsSep " " subsList;
     in
     ''
       substitute ${inFile} $out ${subsStr}
@@ -63,9 +65,9 @@ rec {
     description ? null,
     themeColor ? null,
     openGraph ? null,
-  }: let
+  }: with strings; let
     faviconStr =
-      pkgs.lib.strings.optionalString
+      optionalString
       (favicon != null)
       "<link rel=\"icon\" type=\"image/x-icon\" href=\"${favicon}\">";
 
@@ -73,24 +75,24 @@ rec {
       pkgs.lib.strings.optionalString
       (stylesheets != null)
       (
-        pkgs.lib.strings.concatMapStringsSep
+        concatMapStringsSep
         "\n"
         (stylesheet: "<link rel=\"stylesheet\" href=\"${stylesheet}\">")
         stylesheets
       );
 
     descriptionStr =
-      pkgs.lib.strings.optionalString
+      optionalString
       (description != null)
       "<meta name=\"description\"  content=\"${description}\">";
 
     themeColorStr =
-      pkgs.lib.strings.optionalString
+      optionalString
       (themeColor != null)
       "<meta name=\"theme-color\"  content=\"${themeColor}\">";
 
     openGraphStr =
-      pkgs.lib.strings.optionalString
+      optionalString
       (openGraph != null)
       ''
         <meta property="og:url" content="https://${openGraph.url}/">
@@ -129,15 +131,15 @@ rec {
         </body>
       </html>
     '';
-  in pkgs.writeText body html;
+  in writeText body html;
 
-  fileName = filePath: pkgs.lib.lists.last (pkgs.lib.strings.splitString "/" filePath);
+  fileName = filePath: lists.last (pkgs.lib.strings.splitString "/" filePath);
 
   replaceExt =
     filePath:
     newExt:
     let
-      fileNameNoExt = pkgs.lib.strings.concatStringsSep "." (pkgs.lib.lists.init (pkgs.lib.strings.splitString "." (fileName filePath)));
+      fileNameNoExt = strings.concatStringsSep "." (pkgs.lib.lists.init (pkgs.lib.strings.splitString "." (fileName filePath)));
     in
     fileNameNoExt + newExt;
 
@@ -150,36 +152,36 @@ rec {
   # - tasklist
   mdToHtml =
     md:
-    pkgs.runCommand
+    runCommand
     (replaceExt md ".html")
-    { buildInputs = with pkgs; [ cmark-gfm ]; }
+    { buildInputs = [ cmark-gfm ]; }
     "cmark-gfm -e table -e strikethrough -e autolink ${md} --to html > $out";
 
   scssToCss =
     scss:
-    pkgs.runCommand
+    runCommand
     (replaceExt scss ".css")
-    { buildInputs = with pkgs; [ sassc ]; }
+    { buildInputs = [ sassc ]; }
     "sassc ${scss} $out";
 
   svgToIco =
     svg:
-    pkgs.runCommand
+    runCommand
     (replaceExt svg ".ico")
-    { buildInputs = with pkgs; [ imagemagick ]; }
+    { buildInputs = [ imagemagick ]; }
     "convert -resize 16x16 -background transparent ${svg} $out";
 
   svgToPng =
     svg:
-    pkgs.runCommand
+    runCommand
     (replaceExt svg ".png")
-    { buildInputs = with pkgs; [ imagemagick ]; }
+    { buildInputs = [ imagemagick ]; }
     "convert ${svg} $out";
 
   mdToPdf =
     md:
-    pkgs.runCommand
+    runCommand
     (replaceExt md ".pdf")
-    { buildInputs = with pkgs; [ pandoc wkhtmltopdf ]; }
+    { buildInputs = [ pandoc wkhtmltopdf ]; }
     "pandoc ${md} -o $out --pdf-engine wkhtmltopdf";
 }

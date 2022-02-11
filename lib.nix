@@ -180,8 +180,9 @@ rec {
 
   mdToPdf =
     md:
+    css:
     runCommand
     (replaceExt md ".pdf")
     { buildInputs = [ pandoc wkhtmltopdf ]; }
-    "pandoc ${md} -o $out --pdf-engine wkhtmltopdf";
+    "pandoc ${md} --output $out --css ${css} --pdf-engine wkhtmltopdf";
 }

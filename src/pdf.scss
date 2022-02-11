@@ -1,0 +1,139 @@
+/* ======== FONT ======== */
+$diosevka-font-path: "file://$diosevka$/share/fonts/diosevka/ttf";
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-regular.ttf) format("truetype");
+	font-family: "Diosevka";
+}
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-bold.ttf) format("truetype");
+	font-family: "Diosevka";
+	font-weight: bold;
+}
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-italic.ttf) format("truetype");
+	font-family: "Diosevka";
+	font-style: italic;
+}
+
+@font-face {
+	src: url(#{$diosevka-font-path}/diosevka-bolditalic.ttf) format("truetype");
+	font-family: "Diosevka";
+	font-weight: bold;
+	font-style: italic;
+}
+
+* {
+	font-family: "Diosevka";
+}
+
+/* ======== COLOR ======== */
+html, body {
+	color: #3c3836;
+}
+
+a {
+	color: #b16286;
+	&:visited {
+		color: #8f3f71;
+	}
+}
+
+h1, h1::before, li::marker {
+	color: #d79921;
+}
+
+h2::before {
+	color: #98971a;
+}
+
+h3::before {
+	color: #458588;
+}
+
+th, td {
+	border-color: #d5c4a1;
+}
+
+th {
+	background-color: #d5c4a1;
+	color: #d79921;
+}
+
+blockquote > p {
+	color: #928374;
+}
+
+blockquote > p::before {
+	color: #d79921;
+}
+
+/* ======== STYLE ARTEFACTS ======== */
+pre, img, code {
+	border-radius: 4px;
+}
+
+h1::before {
+	content: "# ";
+}
+
+h2::before {
+	content: "## ";
+}
+
+h3::before {
+	content: "### ";
+}
+
+blockquote > p::before {
+	content: "> ";
+}
+
+blockquote > p {
+	font-style: italic;
+}
+
+li::marker {
+	font-weight: bold;
+}
+
+/* ======== LAYOUT ======== */
+html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	max-width: 80ch;
+	margin: 1em auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 2em;
+}
+
+li {
+	padding: 2px 4px;
+}
+
+img {
+	display: block;
+	max-height: calc(512px / 3);
+	margin: auto;
+}
+
+code {
+	padding: 0 6px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border-width: 2px;
+	border-style: solid;
+	padding: 2px 4px;
+}

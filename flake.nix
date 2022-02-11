@@ -122,7 +122,11 @@
             body = ./src/cv-se.md;
           });
 
-          cv-se-pdf = mkFile "/cv-se.pdf" (mdToPdf (substitute substitutions ./src/cv-se.md));
+          cv-se-pdf = mkFile "/cv-se.pdf" (
+            mdToPdf
+            (substitute substitutions ./src/cv-se.md)
+            (scssToCss (substitute { diosevka = diosevka.packages.x86_64-linux.ttf; } ./src/pdf.scss))
+          );
 
           style = mkFile "/style.css" (scssToCss ./src/style.scss);
 

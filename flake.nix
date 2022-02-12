@@ -19,7 +19,7 @@
         pages = let
           substitutions = {
             age = toString 19; # TODO: Make sure this is up to date
-            email = builtins.readFile ./email.html;
+            email = pkgs.lib.strings.removeSuffix "\n" (builtins.readFile ./email.html);
           };
 
           customHtmlTemplate = { title, body, extraSubs ? { } }: htmlTemplate (let

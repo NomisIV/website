@@ -184,5 +184,12 @@ rec {
     runCommand
     (replaceExt md ".pdf")
     { buildInputs = [ pandoc wkhtmltopdf ]; }
-    "pandoc ${md} --output $out --css ${css} --pdf-engine wkhtmltopdf";
+    "pandoc ${md} \\\
+      --output $out \\\
+      --css ${css} \\\
+      --pdf-engine wkhtmltopdf \\\
+      -V margin-top=20 \\\
+      -V margin-bottom=20 \\\
+      -V margin-left=30 \\\
+      -V margin-right=30";
 }

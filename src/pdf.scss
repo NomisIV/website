@@ -29,47 +29,6 @@ $diosevka-font-path: "file://$diosevka$/share/fonts/diosevka/ttf";
 	font-family: "Diosevka";
 }
 
-/* ======== COLOR ======== */
-html, body {
-	color: #3c3836;
-}
-
-a {
-	color: #b16286;
-	&:visited {
-		color: #8f3f71;
-	}
-}
-
-h1, h1::before, li::marker {
-	color: #d79921;
-}
-
-h2::before {
-	color: #98971a;
-}
-
-h3::before {
-	color: #458588;
-}
-
-th, td {
-	border-color: #d5c4a1;
-}
-
-th {
-	background-color: #d5c4a1;
-	color: #d79921;
-}
-
-blockquote > p {
-	color: #928374;
-}
-
-blockquote > p::before {
-	color: #d79921;
-}
-
 /* ======== STYLE ARTEFACTS ======== */
 pre, img, code {
 	border-radius: 4px;
@@ -106,11 +65,10 @@ html {
 }
 
 body {
-	max-width: 80ch;
 	margin: 1em auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
 	margin-top: 2em;
 }
 
@@ -133,7 +91,7 @@ table {
 }
 
 th, td {
-	border-width: 2px;
+	border-width: 1px;
 	border-style: solid;
 	padding: 2px 4px;
 }

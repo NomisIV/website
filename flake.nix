@@ -18,7 +18,7 @@
         base_url = "nomisiv.com";
         pages = let
           substitutions = {
-            age = toString 19; # TODO: Make sure this is up to date
+            age = toString 20; # TODO: Make sure this is up to date
             email = pkgs.lib.strings.removeSuffix "\n" (builtins.readFile ./email.html);
           };
 

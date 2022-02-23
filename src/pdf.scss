@@ -29,35 +29,6 @@ $diosevka-font-path: "file://$diosevka$/share/fonts/diosevka/ttf";
 	font-family: "Diosevka";
 }
 
-/* ======== STYLE ARTEFACTS ======== */
-pre, img, code {
-	border-radius: 4px;
-}
-
-h1::before {
-	content: "# ";
-}
-
-h2::before {
-	content: "## ";
-}
-
-h3::before {
-	content: "### ";
-}
-
-blockquote > p::before {
-	content: "> ";
-}
-
-blockquote > p {
-	font-style: italic;
-}
-
-li::marker {
-	font-weight: bold;
-}
-
 /* ======== LAYOUT ======== */
 html {
 	margin: 0;
@@ -91,7 +62,6 @@ table {
 }
 
 th, td {
-	border-width: 1px;
-	border-style: solid;
+	border: 1px solid #777777;
 	padding: 2px 4px;
 }

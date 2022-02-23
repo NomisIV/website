@@ -122,9 +122,20 @@
             body = ./src/cv-se.md;
           });
 
+          cv-en = mkFile "/cv-en.html" (customHtmlTemplate {
+            title = "CV - Simon Gutgesell";
+            body = ./src/cv-en.md;
+          });
+
           cv-se-pdf = mkFile "/cv-se.pdf" (
             mdToPdf
             (substitute substitutions ./src/cv-se.md)
+            (scssToCss (substitute { diosevka = diosevka.packages.x86_64-linux.ttf; } ./src/pdf.scss))
+          );
+
+          cv-en-pdf = mkFile "/cv-en.pdf" (
+            mdToPdf
+            (substitute substitutions ./src/cv-en.md)
             (scssToCss (substitute { diosevka = diosevka.packages.x86_64-linux.ttf; } ./src/pdf.scss))
           );
 

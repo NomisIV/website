@@ -14,7 +14,7 @@
     in
     with lib;
     {
-      defaultPackage.x86_64-linux = mkSite {
+      packages.x86_64-linux.default = mkSite {
         base_url = "nomisiv.com";
         pages = let
           substitutions = {

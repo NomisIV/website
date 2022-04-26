@@ -52,11 +52,27 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1650937716,
-        "narHash": "sha256-3Tuspfl36JKnQekMVII3kiL2afj+ngPY2iPVN3zeReU=",
+        "lastModified": 1650970888,
+        "narHash": "sha256-K0Qk6YbkyxBbszkBKCxsLA+jrQpaecf0X8iIO8frS48=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "293a5455f31039a590cca0b844d134736fedae46",
+        "rev": "27a62a9c603d0d832141682cb4f34964d7b48ebb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1650970888,
+        "narHash": "sha256-K0Qk6YbkyxBbszkBKCxsLA+jrQpaecf0X8iIO8frS48=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "27a62a9c603d0d832141682cb4f34964d7b48ebb",
         "type": "github"
       },
       "original": {
@@ -85,7 +101,26 @@
     "root": {
       "inputs": {
         "diosevka": "diosevka",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "servera": "servera"
+      }
+    },
+    "servera": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1650996073,
+        "narHash": "sha256-yMBFBcX9MV7fOhu9D54MNb0L3etwfaCwwYrH4g+pT7Y=",
+        "owner": "NomisIV",
+        "repo": "servera",
+        "rev": "19e5c4e53e62c2746d6841dc71229f5bf8449790",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NomisIV",
+        "repo": "servera",
+        "type": "github"
       }
     }
   },

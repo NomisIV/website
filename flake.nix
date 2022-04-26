@@ -91,71 +91,71 @@
               themeColor = "#cc241d";
             });
           }) errorPagesList);
-        in {
-          index = mkFile "/index.html" (customHtmlTemplate {
+        in [
+          (mkFile "/index.html" (customHtmlTemplate {
             title = "NomisIV";
             body = ./src/index.md;
-          });
+          }))
 
-          about = mkFile "/about.html" (customHtmlTemplate {
+          (mkFile "/about.html" (customHtmlTemplate {
             title = "About Me";
             body = ./src/about.md;
-          });
+          }))
 
-          contact = mkFile "/contact.html" (customHtmlTemplate {
+          (mkFile "/contact.html" (customHtmlTemplate {
             title = "Contact Me";
             body = ./src/contact.md;
-          });
+          }))
 
-          lists = mkFile "/lists.html" (customHtmlTemplate {
+          (mkFile "/lists.html" (customHtmlTemplate {
             title = "My Lists";
             body = ./src/lists.md;
-          });
+          }))
 
-          projects = mkFile "/projects.html" (customHtmlTemplate {
+          (mkFile "/projects.html" (customHtmlTemplate {
             title = "My Projects";
             body = ./src/projects.md;
-          });
+          }))
 
-          wishlist = mkFile "/wishlist.html" (customHtmlTemplate {
+          (mkFile "/wishlist.html" (customHtmlTemplate {
             title = "Wishlist";
             body = ./src/wishlist.md;
-          });
+          }))
 
-          cv-se = mkFile "/cv-se.html" (customHtmlTemplate {
+          (mkFile "/cv-se.html" (customHtmlTemplate {
             title = "CV - Simon Gutgesell";
             body = ./src/cv-se.md;
-          });
+          }))
 
-          cv-en = mkFile "/cv-en.html" (customHtmlTemplate {
+          (mkFile "/cv-en.html" (customHtmlTemplate {
             title = "CV - Simon Gutgesell";
             body = ./src/cv-en.md;
-          });
+          }))
 
-          cv-se-pdf = mkFile "/cv-se.pdf" (
+          (mkFile "/cv-se.pdf" (
             mdToPdf
             (substitute substitutions ./src/cv-se.md)
             (scssToCss (substitute { diosevka = diosevka.packages.x86_64-linux.ttf; } ./src/pdf.scss))
-          );
+          ))
 
-          cv-en-pdf = mkFile "/cv-en.pdf" (
+          (mkFile "/cv-en.pdf" (
             mdToPdf
             (substitute substitutions ./src/cv-en.md)
             (scssToCss (substitute { diosevka = diosevka.packages.x86_64-linux.ttf; } ./src/pdf.scss))
-          );
+          ))
 
-          style = mkFile "/style.css" (scssToCss ./src/style.scss);
+          (mkFile "/style.css" (scssToCss ./src/style.scss))
 
-          favicon = mkFile "/favicon.ico" (svgToIco ./src/favicon.svg);
+          (mkFile "/favicon.ico" (svgToIco ./src/favicon.svg))
 
-          robots = mkFile "/robots.txt" ./src/robots.txt;
+          (mkFile "/robots.txt" ./src/robots.txt)
 
-          assets = mkFolder "/assets" assetsPages;
+          (mkFolder "/assets" assetsPages)
 
-          blog = mkFolder "/blog" blogPages;
+          (mkFolder "/blog" blogPages)
 
-          errors = mkFolder "/errors" errorPages;
-        };
+          (mkFolder "/errors" errorPages)
+        ];
       };
     };
 }

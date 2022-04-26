@@ -8,7 +8,7 @@ rec {
     preGen ? "",
     postGen ? "",
   }: runCommand base_url {} (let
-    genPageList = attrsets.mapAttrsToList ( _name: value: ''
+    genPageList = map ( value: ''
       mkdir -p $(dirname $out${value.path})
       cp -r ${value.file} $out${value.path}
     '') pages;

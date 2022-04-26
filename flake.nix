@@ -51,28 +51,30 @@
           };
 
           blogPagesList = [
-            { date = "2022-02-02"; title = "How I Rebuilt This Website"; link = "/2022-02-02-how-i-rebuilt-this-website"; }
-            { date = "2021-10-08"; title = "Android Sucks";              link = "/2021-10-08-android-sucks";              }
-            { date = "2021-09-18"; title = "My Battlestation Part 2";    link = "/2021-09-18-my-battlestation-part-2";    }
-            { date = "2021-08-23"; title = "My Battlestation Part 1";    link = "/2021-08-23-my-battlestation-part-1";    }
-            { date = "2021-06-05"; title = "How I Built This Website";   link = "/2021-06-05-how-i-built-this-website";   }
+            { date = "2022-02-02"; title = "How I Rebuilt This Website"; }
+            { date = "2021-10-08"; title = "Android Sucks";              }
+            { date = "2021-09-18"; title = "My Battlestation Part 2";    }
+            { date = "2021-08-23"; title = "My Battlestation Part 1";    }
+            { date = "2021-06-05"; title = "How I Built This Website";   }
           ];
 
-          blogPages = {
+          blogPages = let
+            linkOf = page: "/${page.date}-${camelCaseToKebabCase page.title}";
+          in {
             index = mkFile "/index.html" (customHtmlTemplate {
               title = "No one asked";
               body = ./src/blog/index.md;
               extraSubs = {
                 blog = builtins.concatStringsSep "\n" (
-                  map (value: "- [${value.date} ${value.title}](/blog${value.link})") blogPagesList
+                  map (value: "- [${value.date} ${value.title}](/blog${linkOf value})") blogPagesList
                 );
               };
             });
           } // builtins.listToAttrs (map (blogPost: {
             name = blogPost.date;
-            value = mkFile "${blogPost.link}.html" (customHtmlTemplate {
+            value = mkFile "${linkOf blogPost}.html" (customHtmlTemplate {
               title = blogPost.title;
-              body = ./src/blog + blogPost.link + ".md";
+              body = ./src/blog + (linkOf blogPost) + ".md";
             });
           }) blogPagesList);
 

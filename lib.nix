@@ -197,4 +197,8 @@ rec {
       -V margin-bottom=20 \\\
       -V margin-left=30 \\\
       -V margin-right=30";
+
+  camelCaseToKebabCase =
+    string:
+    concatStringsSep "-" (map toLower (splitString " " string));
 }

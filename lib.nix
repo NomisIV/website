@@ -7,7 +7,12 @@ rec {
     pages,
     preGen ? "",
     postGen ? "",
-  }: runCommand base_url {} (let
+  }:
+  assert (builtins.isString base_url);
+  assert (builtins.isList pages);
+  assert (builtins.isString preGen);
+  assert (builtins.isString postGen);
+  runCommand base_url {} (let
     genPageList = map ( value: ''
       mkdir -p $(dirname $out${value.path})
       cp -r ${value.file} $out${value.path}

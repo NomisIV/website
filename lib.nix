@@ -154,8 +154,8 @@ rec {
     md:
     runCommand
     (replaceExt md ".html")
-    { buildInputs = [ cmark-gfm ]; }
-    "cmark-gfm -e table -e strikethrough -e autolink ${md} --to html > $out";
+    { buildInputs = [ pandoc ]; }
+    "pandoc --from markdown+autolink_bare_uris --output $out ${md}";
 
   scssToCss =
     scss:

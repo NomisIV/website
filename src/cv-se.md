@@ -23,34 +23,41 @@ Jag är också intresserad av cyklar,
 eftersom de tar mig ut i naturen och får mig att känna mig extra levande.
 Jag har fyra cyklar, varav en jag byggt själv från cykeldelar jag fick av min far.
 
+## Arbetslivserfarenheter
+
+1. **\[2022-XXXX\]**: IT-support på SundaHus
+
 ## Utbildning
 
-- \[2020-2025\]**Civilingenjör i Mjukvaruteknik** på Linköpings Universitet. *(Ej avslutad)*
-- \[2017-2020\]**Teknikprogrammet** på Ullvigymnasiet i Köping, inriktning Datateknik.
+- **Civilingenjör i Mjukvaruteknik** på Linköpings Universitet. *(Ej avslutad)*
+- **Teknikprogrammet** på Ullvigymnasiet i Köping, inriktning Datateknik.
 
 ## Projekt
+
+### \[2023\] LiTHe Kod Webmaster
+
+LiTHe kod är en studentförening vid Linköpings universitet
+vars syfte är att främja och inspirera intresset för programmering,
+mjukvaruutveckling och allt som hör till.
+Jag var ansvarig för LiTHe Kods hemsida under denna period
 
 ### \[2022\] Min hemsida
 
 Att utveckla min egna hemsida har alltid varit något jag velat göra.
 Så jag har gjort en, helt från grunden.
 
-### \[2021\] D-LAN
+### \[2021\] D-LAN Webb & Stream
 
 D-LAN är en projektgrupp på LiU som håller i en spelkväll varje år på campus.
-Under 2021 så ansvarade jag för deras hemsida.
+Under läsåret 2020 - 2021 så ansvarade jag för deras hemsida.
 
 ### \[2020\] Kylbrants foton
 
 Jag utvecklade en hemsida till Sandra Kylbrants verksamhet som amatörfotograf.
 
-## Arbetslivserfarenheter
-
-1. **Sommarjobb 2018:** Volvo GTO PTP, Köping, montering, 4 veckor
-1. **Sommarjobb 2019:** GKN ePowerline, Köping, montering, 6 veckor
-
 ## Referenser
 
+<!-- TODO: Add Gina from academic work, and Carl from sundahus -->
 | Namn             | Relation                     |
 | ----------------:|:---------------------------- |
 | Arvid Westerlund | Projektledare för D-LAN 2021 |

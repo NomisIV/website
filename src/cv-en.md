@@ -23,34 +23,41 @@ Another interest of mine is biking,
 because it gets me out into nature and it makes me feel alive.
 I have four bikes, one of which I built myself from bike scraps I got from my dad.
 
+## Work Experience
+
+1. **\[2022-XXXX\]**: IT-support at SundaHus
+
 ## Education
 
-- \[2020-2025\] **Civil Engineering in Software and Technology** at LiU.
-- \[2017-2020\] **The Technology Programme** in Ullvigymnasiet, Köping.
+- **Civil Engineering in Software and Technology** at LiU. *(Unfinished)*
+- **The Technology Programme** in Ullvigymnasiet, Köping.
 
 ## Projects
+
+### \[2023\] LiTHe Kod Webmaster
+
+LiTHe kod is a student organization at Linköpings universitet
+whose purpose is to promote and inspire interest for programming,
+software development and everything that goes with it.
+I was responsible for the LiTHe Kod website during this period.
 
 ### \[2022\] My Website
 
 Developing my own website has always been something I've wanted to do.
 So I made one, completely from scratch.
 
-### \[2021\] D-LAN
+### \[2021\] D-LAN Web & Stream
 
 D-LAN is a project group at LiU which arranges a LAN night every year at campus.
-In 2021 I was the maintainer for the project group's website.
+In the school year 2020 - 2021 I maintained the project group's website.
 
 ### \[2020\] Kylbrant's Photos
 
 I developed a gallery store website for Sandra Kylbrant's photography business.
 
-## Work Experience
-
-1. **Summer job 2018**: Volvo GTO PTP, Köping, assembly, 4 weeks
-1. **Summer job 2019**: GKN ePowerline, Köping, assembly, 6 weeks
-
 ## References
 
+<!-- TODO: Add Gina from academic work, and Carl from sundahus -->
 | Name             | Relation                      |
 | ----------------:|:----------------------------- |
 | Arvid Westerlund | Project leader for D-LAN 2021 |

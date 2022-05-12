@@ -148,19 +148,12 @@ rec {
     in
     fileNameNoExt + newExt;
 
-  # Available extensions for cmark-gfm:
-  # - footnotes
-  # - table
-  # - strikethrough
-  # - autolink
-  # - tagfilter
-  # - tasklist
   mdToHtml =
     md:
     runCommand
     (replaceExt md ".html")
     { buildInputs = [ pandoc ]; }
-    "pandoc --from markdown+autolink_bare_uris --output $out ${md}";
+    "pandoc --from markdown+autolink_bare_uris-implicit_figures --output $out ${md}";
 
   scssToCss =
     scss:

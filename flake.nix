@@ -80,12 +80,12 @@
         base_url = "nomisiv.com";
         pages = let
           substitutions = {
-            age = builtins.readFile (
+            age = pkgs.lib.strings.removeSuffix "\n" (builtins.readFile (
               pkgs.runCommand
               "age"
               { buildInputs = with pkgs; [ dateutils ]; }
               "datediff 20020219101400 ${self.lastModifiedDate} -i %Y%m%d%H%M%S -f %Y > $out"
-            );
+            ));
             email = pkgs.lib.strings.removeSuffix "\n" (builtins.readFile ./email.html);
           };
 

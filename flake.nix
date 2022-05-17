@@ -1,14 +1,7 @@
 {
   description = "A flake for generating the content of my website";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    diosevka.url = "github:NomisIV/diosevka";
-    servera.url = "github:NomisIV/servera";
-  };
-
-  outputs = inputs:
-    with inputs;
+  outputs = { self, nixpkgs, diosevka, servera }:
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       lib = import ./lib.nix { inherit pkgs; };

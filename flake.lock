@@ -7,17 +7,14 @@
         "npmlock2nix": "npmlock2nix"
       },
       "locked": {
-        "lastModified": 1651045689,
+        "lastModified": 0,
         "narHash": "sha256-u3P3W6skf1GFHhuDrkTeyuxHiUTlHZ0mvlUAeC8isbo=",
-        "owner": "NomisIV",
-        "repo": "diosevka",
-        "rev": "c184b001c9cb7348cd058e9ac8a3e66838fa8796",
-        "type": "github"
+        "path": "/nix/store/sj481dnw37b5jy658asma1drmzh6k81l-source",
+        "type": "path"
       },
       "original": {
-        "owner": "NomisIV",
-        "repo": "diosevka",
-        "type": "github"
+        "id": "diosevka",
+        "type": "indirect"
       }
     },
     "flake-utils": {
@@ -53,18 +50,14 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1652252629,
-        "narHash": "sha256-SvT64apetqc8P5nYp1/fOZvUmHUPdPFUZbhSpKy+1aI=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d2fc6856824cb87742177eefc8dd534bdb6c3439",
-        "type": "github"
+        "lastModified": 0,
+        "narHash": "sha256-7GSVLvfCJtH9dJ3om9Lg4fsi9UKvoxxR69gUTcx0ol8=",
+        "path": "/nix/store/0vww7zzdb9fmsr4h3m8anxk81xqw88if-source",
+        "type": "path"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "type": "indirect"
       }
     },
     "nixpkgs_3": {
@@ -111,17 +104,14 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1650996073,
+        "lastModified": 0,
         "narHash": "sha256-yMBFBcX9MV7fOhu9D54MNb0L3etwfaCwwYrH4g+pT7Y=",
-        "owner": "NomisIV",
-        "repo": "servera",
-        "rev": "19e5c4e53e62c2746d6841dc71229f5bf8449790",
-        "type": "github"
+        "path": "/nix/store/agp0g553wf2dl6rhnk6rb7aylzng37h1-source",
+        "type": "path"
       },
       "original": {
-        "owner": "NomisIV",
-        "repo": "servera",
-        "type": "github"
+        "id": "servera",
+        "type": "indirect"
       }
     }
   },

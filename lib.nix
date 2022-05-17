@@ -2,51 +2,30 @@
 with pkgs;
 with lib;
 rec {
-  mkSite = {
-    base_url,
-    pages,
-    preGen ? "",
-    postGen ? "",
-  }:
-  assert (builtins.isString base_url);
-  assert (builtins.isList pages);
-  assert (builtins.isString preGen);
-  assert (builtins.isString postGen);
-  runCommand base_url {} (let
-    genPageList = map ( value: ''
-      mkdir -p $(dirname $out${value.path})
-      cp -r ${value.file} $out${value.path}
-    '') pages;
+  mkSite = url: pages:
+  runCommand url {} (let
+    pageNamesFlat = attrsets.collect builtins.isString (
+      attrsets.mapAttrsRecursive
+      (path: value: strings.concatStringsSep "/" path)
+      pages
+    );
 
-    genStr = concatStringsSep "\n" (genPageList);
-  in ''
-    mkdir $out
-    ${preGen}
-    ${genStr}
-    ${postGen}
-  '');
+    pageMap = attrsets.genAttrs pageNamesFlat ( pageUrl:
+      attrsets.getAttrFromPath (strings.splitString "/" pageUrl) pages
+    );
 
-  mkFile = path: file: { inherit path file; };
-  mkFolder = path: files: {
-    inherit path;
-    file = runCommand path {} (let
-      genPageList = attrsets.mapAttrsToList ( _name: value: ''
-        mkdir -p $(dirname $out${value.path})
-        cp -r ${value.file} $out${value.path}
-      '') files;
-
-      genStr = concatStringsSep "\n" (genPageList);
-    in ''
-      mkdir $out
-      ${genStr}
-    '');
-  };
+    genPageList = attrsets.mapAttrsToList (name: value:
+    ''
+      mkdir -p $(dirname $out/${name})
+      ln -s ${value} $out/${name}
+    '') pageMap;
+  in concatStringsSep "\n" (genPageList));
 
   substitute =
     substitutions:
     inFile:
     runCommand
-    ((fileName inFile) + ".substituted")
+    ((fileName inFile) + "-sub")
     {}
     (let
       nameFn = name: strings.escapeShellArg ("$" + name + "$");
@@ -136,60 +115,77 @@ rec {
         </body>
       </html>
     '';
-  in writeText body html;
+  in builtins.toString (writeText (fileName body) html);
 
-  fileName = filePath: lists.last (pkgs.lib.strings.splitString "/" filePath);
+  # remove the /nix/store/<hash>- part of a file path
+  fileName = filePath:
+    builtins.substring 44 (builtins.stringLength filePath) filePath;
 
   replaceExt =
     filePath:
     newExt:
     let
-      fileNameNoExt = strings.concatStringsSep "." (pkgs.lib.lists.init (pkgs.lib.strings.splitString "." (fileName filePath)));
+      fileNameNoExt = strings.concatStringsSep "." (
+        lists.init
+        (strings.splitString "." (fileName filePath))
+      );
     in
     fileNameNoExt + newExt;
 
   mdToHtml =
     md:
-    runCommand
-    (replaceExt md ".html")
-    { buildInputs = [ pandoc ]; }
-    "pandoc --from markdown+autolink_bare_uris-implicit_figures --output $out ${md}";
+    builtins.toString (
+      runCommand
+      (replaceExt md ".html")
+      { buildInputs = [ pandoc ]; }
+      "pandoc \\\
+      --from markdown+autolink_bare_uris-implicit_figures \\\
+      --output $out ${md}"
+    );
 
   scssToCss =
     scss:
-    runCommand
-    (replaceExt scss ".css")
-    { buildInputs = [ sassc ]; }
-    "sassc ${scss} $out";
+    builtins.toString (
+      runCommand
+      (replaceExt scss ".css")
+      { buildInputs = [ sassc ]; }
+      "sassc ${scss} $out"
+    );
 
   svgToIco =
     svg:
-    runCommand
-    (replaceExt svg ".ico")
-    { buildInputs = [ imagemagick ]; }
-    "convert -resize 16x16 -background transparent ${svg} $out";
+    builtins.toString (
+      runCommand
+      (replaceExt svg ".ico")
+      { buildInputs = [ imagemagick ]; }
+      "convert -resize 16x16 -background transparent ${svg} $out"
+    );
 
   svgToPng =
     svg:
-    runCommand
-    (replaceExt svg ".png")
-    { buildInputs = [ imagemagick ]; }
-    "convert ${svg} $out";
+    builtins.toString (
+      runCommand
+      (replaceExt svg ".png")
+      { buildInputs = [ imagemagick ]; }
+      "convert ${svg} $out"
+    );
 
   mdToPdf =
     md:
     css:
-    runCommand
-    (replaceExt md ".pdf")
-    { buildInputs = [ pandoc wkhtmltopdf ]; }
-    "pandoc ${md} \\\
+    builtins.toString (
+      runCommand
+      (replaceExt md ".pdf")
+      { buildInputs = [ pandoc wkhtmltopdf ]; }
+      "pandoc ${md} \\\
       --output $out \\\
       --css ${css} \\\
       --pdf-engine wkhtmltopdf \\\
-      -V margin-top=20 \\\
-      -V margin-bottom=20 \\\
-      -V margin-left=30 \\\
-      -V margin-right=30";
+      --variable margin-top=20 \\\
+      --variable margin-bottom=20 \\\
+      --variable margin-left=30 \\\
+      --variable margin-right=30"
+    );
 
   camelCaseToKebabCase =
     string:

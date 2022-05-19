@@ -68,7 +68,6 @@
           users.users = lib.mkIf (cfg.user == "nomisiv-website") {
             nomisiv-webiste = {
               group = cfg.group;
-              home = cfg.dataDir;
               uid = 350;
             };
           };

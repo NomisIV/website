@@ -66,14 +66,14 @@
 
           # Add user and group
           users.users = lib.mkIf (cfg.user == "nomisiv-website") {
-            nomisiv-webiste = {
+            nomisiv-website = {
               group = cfg.group;
               uid = 350;
             };
           };
 
           users.groups = lib.mkIf (cfg.group == "nomisiv-website") {
-            nomisiv-webiste.gid = 350;
+            nomisiv-website.gid = 350;
           };
         };
       };

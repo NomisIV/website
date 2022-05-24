@@ -52,8 +52,7 @@
             wantedBy = ["multi-user.target"];
 
             serviceConfig = {
-              ExecStart = "${servera.packages.x86_64-linux.default}/bin/servera \
-                ${toString cfg.port} ${self.packages.x86_64-linux.default}";
+              ExecStart = "${servera.packages.x86_64-linux.default}/bin/servera ${toString cfg.port} ${self.packages.x86_64-linux.default}";
               User = cfg.user;
               Group = cfg.group;
             };

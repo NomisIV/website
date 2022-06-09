@@ -185,6 +185,10 @@
         blog = let
           blogPagesList = [
             {
+              date = "2022-06-06";
+              title = "Updating My Server";
+            }
+            {
               date = "2022-02-02";
               title = "How I Rebuilt This Website";
             }

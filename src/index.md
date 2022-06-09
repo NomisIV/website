@@ -18,3 +18,4 @@ If you find my website interesting, here are some more:
 
 - [christine.website](https://christine.website)
 - [lukesmith.xyz](https://lukesmith.xyz)
+- [blog.tjll.net](https://blog.tjll.net)

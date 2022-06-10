@@ -14,10 +14,12 @@ with lib; rec {
           attrsets.getAttrFromPath (strings.splitString "/" pageUrl) pages
       );
 
-      genPageList = attrsets.mapAttrsToList (name: value: ''
-        mkdir -p $(dirname $out/${name})
-        ln -s ${value} $out/${name}
-      '') pageMap;
+      genPageList =
+        attrsets.mapAttrsToList (name: value: ''
+          mkdir -p $(dirname $out/${name})
+          ln -s ${value} $out/${name}
+        '')
+        pageMap;
     in
       concatStringsSep "\n" genPageList);
 
@@ -66,12 +68,12 @@ with lib; rec {
       descriptionStr =
         optionalString
         (description != null)
-        "<meta name=\"description\"  content=\"${description}\">";
+        "<meta name=\"description\" content=\"${description}\">";
 
       themeColorStr =
         optionalString
         (themeColor != null)
-        "<meta name=\"theme-color\"  content=\"${themeColor}\">";
+        "<meta name=\"theme-color\" content=\"${themeColor}\">";
 
       openGraphStr =
         optionalString

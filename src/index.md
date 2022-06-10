@@ -1,6 +1,6 @@
 ![logo](/assets/nomisiv.svg)
 
-> Why do it the easy way when you can implement it yourself?
+> NomisIV: Why do it the easy way when you can implement it yourself?
 
 # This is my website!
 

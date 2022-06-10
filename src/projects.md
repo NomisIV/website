@@ -23,13 +23,6 @@ The syntax kind of looks like a mix of Ruby and Rust.
 Currently I have only implemented a proof-of-concept parser and interpreter,
 which is advanced enough to run a simple hello world program.
 
-## This website
-
-[Link to GitHub](https://github.com/NomisIV/servera)
-
-If you are interested in how this website works,
-you can read my blog post explaining it [here](/blog/how-i-built-this-website)
-
 ## `swayhide` - A window swallower for sway
 
 [Link to GitHub](https://github.com/NomisIV/swayhide)

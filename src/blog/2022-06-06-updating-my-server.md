@@ -1,58 +1,58 @@
 # Updating My Server
 
-I have my own server in my closet,
-hosting various services like this website
-and various game servers too.
-It runs NixOS just like every other computer of mine,
-and it did this off of three hard drives (1x 160GB and 2x 1TB).
-In NixOS I had these drives configured in LVM
-to make one big partition.
+I have an HP Z800 in my closet, acting as my server.
+It hosts this website, some personal stuff,
+and a couple game servers.
+It ran NixOS off of three hard drives (1x 160GB and 2x 1TB),
+which were configured to make one big partition using LVM.
+
+![An image of an HP Z800 with the side panel off](https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.harlander.com%2Fartikel%2F1000x1000%2Fhp-z800-3.jpg&f=1&nofb=1)
+
+> NomisIV: Isn't it magnificent?
 
 ## The IO-wait problem
 
 While the mega composite drive worked great,
 I had some problems with IO-wait.
-For non-linux and tech -users,
-this is essentially the time that the processor waits for data from
-the hard drives,
-and high numbers indicate that the disks are a bottleneck of the system.
+This is essentially how much time the processor waits for data from
+the hard drives, so lower numbers are better.
 
 When loading my server with demanding tasks,
 and especially when updating,
-I could easily get spikes of IO-wait up to 70-80%.
-This, was less than ideal.
+I would easily get spikes of IO-wait up to 70-80%.
+It would almost freeze the server, and made everything really sluggish.
+This was less than ideal.
 
 Another problem was the lack of any redundancy in the storage configuration.
-If any drive failed, I'd lose data.
+If any drive failed, I'd obviously lose data.
 This is also less than ideal for a 100% uptime server.
 
-## Ordering my hard drives
+## The new hard drives
 
 After some searching online I found someone selling hard drives for cheap.
-I bought two of them, since I already had two 1TB drives.
-
-## Installing the hard drives
+I bought two of them, to make up a total of four 1TB drives.
 
 Since there were only three drive carriages in the server when I bought it,
 I couldn't fit all the hard drives in their own carriages.
-I had to think outside the box,
-and using an eraser, I managed to prop up one hard drive on top of another,
-without bending the port too much.
+Thinking outside the box,
+I managed to prop up one hard drive on top of another using an eraser.
 
 ## Updating the BIOS
 
+After installing the hard drives using questionable -
+albeit *revertible* - methods,
+I wanted to update the BIOS to the latest version.
 I had already had a crack at this a while ago,
 but ultimately I gave up because I just couldn't get it to work.
-There are different ways to go about doing this,
+There are different ways to go about doing it,
 but none of the ways seemed to work like they should.
-This time I remembered that I have a work laptop with windows on it,
+This time I didn't forget that I have a work laptop with windows on it,
 so I could use that to create a bootable Windows 10 USB,
-and then install that on the server.
+and then temporarily install it on the server solely to update the BIOS.
 
 ### Windows 10 USB shenanigans
 
-Creating a bootable Windows 10 USB drive should be a quite straightforward
-process.
+Creating a bootable Windows 10 USB drive is quite a straightforward process.
 You download a program off of Microsoft's website,
 and then you launch it and navigate the options it presents
 while waiting at least a minute between every step.

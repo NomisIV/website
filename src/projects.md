@@ -4,6 +4,14 @@ These are (most of) my programming projects,
 where I create what I want, how I want.
 They are roughly arranged in chronological order.
 
+## `planera` - A TUI calendar program
+
+`planera` is a TUI program for scheduling.
+It understands CalDav and iCal calendars,
+and can generate a schedule and an agenda from them.
+This is useful for accessing a [radicale](https://radicale.org) server
+from the terminal.
+
 ## `sand` - A sandbox programming language
 
 [Link to GitHub](https://github.com/NomisIV/sand)

@@ -9,7 +9,7 @@
   } @ inputs: let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in {
-    nixosModule.default = (import ./module.nix) inputs;
+    nixosModules.default = (import ./module.nix) inputs;
 
     packages.x86_64-linux.default = (import ./site.nix) inputs;
 

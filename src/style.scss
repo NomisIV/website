@@ -126,12 +126,12 @@ li::marker {
 /* ======== LAYOUT ======== */
 html {
 	margin: 0;
-	padding: 0;
+	padding: 1em;
 }
 
 body {
 	max-width: 80ch;
-	margin: 1em auto;
+	margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {

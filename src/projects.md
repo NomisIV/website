@@ -4,6 +4,15 @@ These are (most of) my programming projects,
 where I create what I want, how I want.
 They are roughly arranged in chronological order.
 
+## `polygraph` - A system statistics visualizer
+
+Is Grafana too complicated?
+Is netdata cool, but a bit too quirky and rigid?
+PolyGraph will let you view metrics and statistics from your computer in the browser,
+but without the pain.
+The backend is written in rust,
+and the frontend in elm (at least for now).
+
 ## `planera` - A TUI calendar program
 
 `planera` is a TUI program for scheduling.
@@ -11,17 +20,6 @@ It understands CalDav and iCal calendars,
 and can generate a schedule and an agenda from them.
 This is useful for accessing a [radicale](https://radicale.org) server
 from the terminal.
-
-## `sand` - A sandbox programming language
-
-[Link to GitHub](https://github.com/NomisIV/sand)
-
-I'm writing my own programming language called sand.
-I think it will be a purely functional and object oriented language,
-if that isn't an oxymoron.
-The syntax kind of looks like a mix of Ruby and Rust.
-Currently I have only implemented a proof-of-concept parser and interpreter,
-which is advanced enough to run a simple hello world program.
 
 ## `swayhide` - A window swallower for sway
 
@@ -39,6 +37,17 @@ a graphical program in it.
 # Old projects
 
 I leave no guarantees on the quality of the code!
+
+## `sand` - A sandbox programming language
+
+[Link to GitHub](https://github.com/NomisIV/sand)
+
+I'm writing my own programming language called sand.
+I think it will be a purely functional and object oriented language,
+if that isn't an oxymoron.
+The syntax kind of looks like a mix of Ruby and Rust.
+Currently I have only implemented a proof-of-concept parser and interpreter,
+which is advanced enough to run a simple hello world program.
 
 ## `pioneerctl` - A remote control for *some* pioneer recievers
 

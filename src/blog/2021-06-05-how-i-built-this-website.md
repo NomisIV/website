@@ -1,6 +1,6 @@
 # How I built this website
 
-**NOTE:** This blog post has been superseeded by [this one](/blog/2022-02-02-how-i-rebuilt-this-website) instead
+**NOTE:** This blog post has been superseded by [this one](/blog/2022-02-02-how-i-rebuilt-this-website) instead
 
 ## Starting a new web project
 
@@ -9,7 +9,7 @@ I'm quite a fan of [rust](https://runst-lang.org),
 and there are many web frameworks in the [cargo](https://crates.io) repositories,
 so this was quite an easy choice.
 However when it came to which web framework to use I wasn't as sure.
-I had alread tried [rocket](https://rocket.rs),
+I had already tried [rocket](https://rocket.rs),
 but it requires the absolutely latest version of rust,
 which I didn't want to bother with.
 So instead I settled for [actix](https://actix.rs/).
@@ -94,7 +94,7 @@ in some sort of scripting language.
 
 But what language would I use?
 
-I had some experince with lua,
+I had some experience with lua,
 and it's supposedly specifically developed for integrating into stuff.
 I had a go with it,
 but quickly realized that you couldn't list a directory.
@@ -134,7 +134,7 @@ This is still technical, but I'll try to keep it breif.
 ### Data separation
 
 I have organized the project so that
-the web server is completely seperate from the content.
+the web server is completely separate from the content.
 This is useful,
 since it means I can distribute the server without distributing the contents
 of the website.

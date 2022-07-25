@@ -11,7 +11,7 @@ As it turns out, spawning a child process to generate dynamic content is slow.
 I don't mean that it's *slow* slow, but when it comes to a web server everything
 needs to be super fast.
 There is a model called the waterfall model which is used when analyzing load
-times for webservers,
+times for web servers,
 as it clearly shows the stages in the process which takes the most time.
 Most of these steps usually take one or two milliseconds.
 Some might take a handful.

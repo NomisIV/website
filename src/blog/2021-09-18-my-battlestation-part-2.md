@@ -10,7 +10,7 @@ For some context about my computer:
 Just before Black Friday in 2019,
 me and my friends started thinking about building our own computers.
 I hadn't really decided what components I wanted, and I wasn't very experienced
-(I had aquired most of my knowledge by watching [Linus Tech Tips](https://www.youtube.com/c/LinusTechTips) on YouTube).
+(I had acquired most of my knowledge by watching [Linus Tech Tips](https://www.youtube.com/c/LinusTechTips) on YouTube).
 So in the end I basically scrambled the list of original parts together in about 15 minutes,
 while my friends were driving next towns to the computer hardware store.
 
@@ -85,7 +85,7 @@ The card had been used for crypto mining probably since launch,
 but since it was so new at the time,
 that was only a couple of months at most.
 
-After recieving the card I had some really interesting problems
+After receiving the card I had some really interesting problems
 where the linux kernel I used didn't support the GPU yet.
 But after waiting about a week for the kernel update to reach the repos,
 things started working.
@@ -102,11 +102,11 @@ unless I wanted double graphics cards or something,
 but since that's kinda dead by now,
 that wasn't really something I wanted anyway.
 
-## Chassi
+## Case
 
 [Corsiar Carbide 275R Black](https://www.corsair.com/us/en/Categories/Products/Cases/Carbide-Series-275R-Tempered-Glass-Mid-Tower-Gaming-Case/p/CC-9011132-WW)
 
-I wanted a glass side panel on the chassi,
+I wanted a glass side panel on the case,
 so I could see all the expensive components I'd just purchased,
 and this was basically the cheapest one.
 In the end I'm really satisfied with it.

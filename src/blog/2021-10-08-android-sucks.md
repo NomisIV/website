@@ -17,7 +17,7 @@ Changes needed to be made.
 Before this change I was running a slightly sketchy,
 but very customizable ROM called [HavocOS](https://havoc-os.com).
 It's amazing when it comes to customizability,
-but it's developed by two indian guys with failing harddrives,
+but it's developed by two Indian guys with failing hard drives,
 and the official support channel was a telegram group.
 In the end I did settle for [LineageOS](https://lineageos.org),
 which I already had experience of on my old phone.
@@ -45,7 +45,7 @@ Do not follow this blindly if you have another phone*
 ## Setting up the ROM
 
 When following my own installation instructions I didn't really think twice about what I needed to back up.
-I only backed up the bank app we use for authenticating to a lot of online services here in sweden,
+I only backed up the bank app we use for authenticating to a lot of online services here in Sweden,
 but when I tried to restore it on Lineage it failed for some reason.
 In the end I had to resort to asking a friend to fix a new one,
 because the bank require you to own a Windows or Mac PC because of proprietary drivers and who even uses linux lmao am i right.
@@ -75,7 +75,7 @@ And the journey to how I did it is the reason I'm writing this blog post in the 
 
 ## Setting up Google Cloud Messaging with microG
 
-So, I'll write this as another list, because there are a ridiculus number of steps to this.
+So, I'll write this as another list, because there are a ridiculous number of steps to this.
 
 1. Make sure you have no other Google Play Services -replacements installed. I had installed a library to get GCam working which prevented me from installing microG
 1. If the installed ROM doesn't natively support *signature spoofing*:
@@ -104,10 +104,10 @@ So, I'll write this as another list, because there are a ridiculus number of ste
 In case someone cares about this (who am I kidding, this blog is literally about the things no one asks me),
 here are some other things I like to set up and use on my phone:
 
-- Syncthing for file syncronization between my phone and my computer
+- Syncthing for file synchronization between my phone and my computer
 - FairEmail as a mail client
 - DavX⁵ for synchronizing calendar events and contacts with my WebCal server
-- GCam for better photos and auxillary camera support
+- GCam for better photos and auxiliary camera support
 - FlorisBoar for an open source keyboard
 - Scoop for error catching (how the ~~fuck~~ is this not a standard feature of android????)
 - Termux for a linux environment on my phone (or even better NixOnDroid)
@@ -123,4 +123,4 @@ Of course the ROMs are usable without this,
 but if you really want a fully functional *and* open source android phone
 you really have to walk a thousand miles.
 Looking back at the time I've spent on this I could probably have spent it better,
-but at least i recieve Discord notifications now.
+but at least i receive Discord notifications now.

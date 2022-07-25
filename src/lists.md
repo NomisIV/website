@@ -10,7 +10,7 @@
 - Nature
 - Cats
 
-## Music[ians] i listen to:
+## Music\[ians\] i listen to:
 
 - **Vessel** *by* OVERWERK - [YouTube](https://www.youtube.com/playlist?list=PLa4yK1a5RlqKqxuO8D19ipYOHMbEf6G-C)
 - **REZZ** - [YouTube](https://www.youtube.com/channel/UCMcWPM9eOz9Dsn7YwAlpOoQ)

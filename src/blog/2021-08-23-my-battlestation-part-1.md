@@ -54,7 +54,7 @@ and programmed with a custom [colemak](https://colemak.com/) layout.
 	who wants total control over everything I own.
 	Now that I own a QMK keyboard, I'll never buy a keyboard without it.
 - The layout I'm using is a custom version of colemak.
-	I'm not using qwerty, because it was desiged to slow people down.
+	I'm not using qwerty, because it was designed to slow people down.
 	I'm also not using dvorak, because colemak has a better
 	[key frequency heatmap](https://live.staticflickr.com/7003/6554340969_bb2d63372d_b.jpg)
 	in my opinion.
@@ -88,7 +88,7 @@ because it does it's job, and it looks cool.
 I don't really have any praise for it,
 which I guess is quite a good compiment to a mouse.
 I do wish it was possible to take it apart,
-and that the plastic piceses of it didn't creak when I push them.
+and that the plastic pieces of it didn't creak when I push them.
 But like, it works, so...
 
 ## Headset

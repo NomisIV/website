@@ -7,6 +7,7 @@
 - Monospaced fonts
 - Dark mode
 - Bad movies
+- Bicycles
 - Nature
 - Cats
 

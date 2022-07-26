@@ -23,23 +23,46 @@ in
         body,
         extraSubs ? {},
       }:
-        htmlTemplate (let
-          description =
-            pkgs.lib.strings.escapeXML
-            (builtins.readFile ./description.txt);
-        in {
-          inherit title description;
-          body = mdToHtml (substitute (substitutions // extraSubs) body);
-          favicon = "/favicon.ico";
-          stylesheets = ["/style.css"];
-          themeColor = "#d79921";
-          openGraph = {
-            inherit description;
-            url = "nomisiv.com";
-            title = title;
-            image = "/assets/card.png";
-          };
-        });
+        htmlTemplate (
+          self: let
+            header = with pkgs.lib; let
+              pathSteps =
+                map
+                (n: lists.take n (map (strings.removeSuffix ".html") self.path))
+                (lists.range 1 (builtins.length self.path));
+
+              pathLinks =
+                pkgs.lib.strings.concatMapStringsSep
+                " / " (
+                  seg:
+                    if lists.last seg == "index"
+                    then ""
+                    else let
+                      href = strings.concatStringsSep "/" seg;
+                      text = lists.last seg;
+                    in "<a href='/${href}'>${text}</a>"
+                )
+                pathSteps;
+            in "<a href='/'>nomisiv.com</a> / ${pathLinks}";
+
+            description =
+              pkgs.lib.strings.escapeXML
+              (builtins.readFile ./description.txt);
+          in {
+            inherit title description header;
+            body = mdToHtml (substitute (substitutions // extraSubs) body) self;
+            footer = "";
+            favicon = "/favicon.ico";
+            stylesheets = ["/style.css"];
+            themeColor = "#d79921";
+            openGraph = {
+              inherit description;
+              url = "nomisiv.com";
+              title = title;
+              image = "/assets/card.png";
+            };
+          }
+        );
 
       customMdToPdf = file:
         mdToPdf
@@ -98,15 +121,15 @@ in
 
       "favicon.ico" = svgToIco ./src/favicon.svg;
 
-      "robots.txt" = ./src/robots.txt;
+      "robots.txt" = self: ./src/robots.txt;
 
       assets = {
-        "nomisiv.svg" = ./src/assets/nomisiv.svg;
-        "card.png" = ./src/assets/card.png;
-        fonts =
+        "nomisiv.svg" = self: ./src/assets/nomisiv.svg;
+        "card.png" = self: ./src/assets/card.png;
+        fonts = self:
           diosevka.packages.x86_64-linux.woff2
           + "/share/fonts/diosevka/woff2";
-        memes = ./src/assets/memes;
+        memes = self: ./src/assets/memes;
       };
 
       blog = let
@@ -177,17 +200,23 @@ in
       in
         builtins.listToAttrs (map (errorPage: {
             name = "${toString errorPage.code}.html";
-            value = htmlTemplate {
+            value = htmlTemplate (self: {
               title = "${toString errorPage.code} ${errorPage.message}";
-              body = mdToHtml (
-                ./src/errors
-                + ("/" + toString errorPage.code)
-                + ".md"
-              );
+              description = null;
+              openGraph = null;
+              header = "";
+              footer = "";
+              body =
+                mdToHtml (
+                  ./src/errors
+                  + ("/" + toString errorPage.code)
+                  + ".md"
+                )
+                self;
               favicon = "/favicon.ico";
               stylesheets = ["/style.css"];
               themeColor = "#cc241d";
-            };
+            });
           })
           errorPagesList);
     })

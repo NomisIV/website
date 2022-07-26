@@ -35,6 +35,11 @@ html, body {
 	background-color: #fbf1c7;
 }
 
+header {
+	background-color: #d5c4a1;
+	color: #458588;
+}
+
 code {
 	background-color: #d5c4a1;
 }
@@ -81,7 +86,7 @@ blockquote > p::before {
 		background-color: #282828;
 	}
 
-	code {
+	header, code {
 		background-color: #3c3836;
 	}
 
@@ -99,7 +104,7 @@ blockquote > p::before {
 }
 
 /* ======== STYLE ARTEFACTS ======== */
-pre, img, code {
+pre, img, code, header {
 	border-radius: 4px;
 }
 
@@ -136,6 +141,11 @@ html {
 body {
 	max-width: 80ch;
 	margin: 0 auto;
+}
+
+header {
+	padding: 1em;
+	font-weight: bold;
 }
 
 h1, h2, h3, h4, h5, h6 {

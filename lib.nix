@@ -3,7 +3,7 @@ with pkgs;
 with lib; rec {
   mkSite = url: pages:
     runCommand url {} (let
-      pageNamesFlat = attrsets.collect builtins.isString (
+      pageNamesFlat = attrsets.collect (x: !builtins.isAttrs x) (
         attrsets.mapAttrsRecursive
         (path: value: strings.concatStringsSep "/" path)
         pages
@@ -15,10 +15,12 @@ with lib; rec {
       );
 
       genPageList =
-        attrsets.mapAttrsToList (name: value: ''
+        attrsets.mapAttrsToList (name: value: (let
+          opts = {path = strings.splitString "/" name;};
+        in ''
           mkdir -p $(dirname $out/${name})
-          ln -s ${value} $out/${name}
-        '')
+          ln -s ${value opts} $out/${name}
+        ''))
         pageMap;
     in
       concatStringsSep "\n" genPageList);
@@ -40,61 +42,67 @@ with lib; rec {
       substitute ${inFile} $out ${subsStr}
     '');
 
-  htmlTemplate = {
-    title,
-    body,
-    favicon ? null,
-    stylesheets ? null,
-    description ? null,
-    themeColor ? null,
-    openGraph ? null,
-  }:
+  # htmlTemplate : (self -> settings) -> self -> string
+
+  htmlTemplate = settingsFunc: self: let
+    settings = settingsFunc self;
+  in
     with strings; let
       faviconStr =
         optionalString
-        (favicon != null)
-        "<link rel=\"icon\" type=\"image/x-icon\" href=\"${favicon}\">";
+        (settings.favicon != null)
+        "<link rel=\"icon\" type=\"image/x-icon\" href=\"${settings.favicon}\">";
 
       stylesheetsStr =
         pkgs.lib.strings.optionalString
-        (stylesheets != null)
+        (settings.stylesheets != null)
         (
           concatMapStringsSep
           "\n"
           (stylesheet: "<link rel=\"stylesheet\" href=\"${stylesheet}\">")
-          stylesheets
+          settings.stylesheets
         );
 
       descriptionStr =
         optionalString
-        (description != null)
-        "<meta name=\"description\" content=\"${description}\">";
+        (settings.description != null)
+        "<meta name=\"description\" content=\"${settings.description}\">";
 
       themeColorStr =
         optionalString
-        (themeColor != null)
-        "<meta name=\"theme-color\" content=\"${themeColor}\">";
+        (settings.themeColor != null)
+        "<meta name=\"theme-color\" content=\"${settings.themeColor}\">";
 
       openGraphStr =
         optionalString
-        (openGraph != null)
+        (settings.openGraph != null)
         ''
-          <meta property="og:url" content="https://${openGraph.url}/">
+          <meta property="og:url" content="https://${settings.openGraph.url}/">
           <meta property="og:type" content="website">
-          <meta property="og:title" content="${openGraph.title}">
-          <meta property="og:description" content="${openGraph.description}">
-          <meta property="og:image" content="${openGraph.image}">
+          <meta property="og:title" content="${settings.openGraph.title}">
+          <meta property="og:description" content="${settings.openGraph.description}">
+          <meta property="og:image" content="${settings.openGraph.image}">
           <meta property="og:image:type" content="image/png">
           <meta property="og:image:width" content="1200">
           <meta property="og:image:height" content="630">
 
           <meta name="twitter:card" content="summary_large_image">
-          <meta name="twitter:domain" content="${openGraph.url}">
-          <meta name="twitter:url" content="https://${openGraph.url}/">
-          <meta name="twitter:title" content="${openGraph.title}">
-          <meta name="twitter:description" content="${openGraph.description}">
-          <meta name="twitter:image" content="${openGraph.image}">
+          <meta name="twitter:domain" content="${settings.openGraph.url}">
+          <meta name="twitter:url" content="https://${settings.openGraph.url}/">
+          <meta name="twitter:title" content="${settings.openGraph.title}">
+          <meta name="twitter:description" content="${settings.openGraph.description}">
+          <meta name="twitter:image" content="${settings.openGraph.image}">
         '';
+
+      headerStr =
+        optionalString
+        (settings.header != null)
+        "<header>${settings.header}</header>";
+
+      footerStr =
+        optionalString
+        (settings.footer != null)
+        "<footer>${settings.footer}</footer>";
       html = ''
         <!DOCTYPE html>
         <html lang="en">
@@ -108,15 +116,17 @@ with lib; rec {
             ${themeColorStr}
             ${openGraphStr}
 
-            <title>${title}</title>
+            <title>${settings.title}</title>
           </head>
           <body>
-          ${builtins.readFile body}
+          ${headerStr}
+          ${builtins.readFile settings.body}
+          ${footerStr}
           </body>
         </html>
       '';
     in
-      builtins.toString (writeText (fileName body) html);
+      builtins.toString (writeText (fileName settings.body) html);
 
   # remove the /nix/store/<hash>- part of a file path
   fileName = filePath:
@@ -130,7 +140,7 @@ with lib; rec {
   in
     fileNameNoExt + newExt;
 
-  mdToHtml = md:
+  mdToHtml = md: self:
     builtins.toString (
       runCommand
       (replaceExt md ".html")
@@ -140,7 +150,7 @@ with lib; rec {
       --output $out ${md}"
     );
 
-  scssToCss = scss:
+  scssToCss = scss: self:
     builtins.toString (
       runCommand
       (replaceExt scss ".css")
@@ -148,7 +158,7 @@ with lib; rec {
       "sassc ${scss} $out"
     );
 
-  svgToIco = svg:
+  svgToIco = svg: self:
     builtins.toString (
       runCommand
       (replaceExt svg ".ico")
@@ -156,7 +166,7 @@ with lib; rec {
       "convert -resize 16x16 -background transparent ${svg} $out"
     );
 
-  svgToPng = svg:
+  svgToPng = svg: self:
     builtins.toString (
       runCommand
       (replaceExt svg ".png")
@@ -164,14 +174,14 @@ with lib; rec {
       "convert ${svg} $out"
     );
 
-  mdToPdf = md: css:
+  mdToPdf = md: css: self:
     builtins.toString (
       runCommand
       (replaceExt md ".pdf")
       {buildInputs = [pandoc wkhtmltopdf];}
       "pandoc ${md} \\\
       --output $out \\\
-      --css ${css} \\\
+      --css ${css self} \\\
       --pdf-engine wkhtmltopdf \\\
       --variable margin-top=20 \\\
       --variable margin-bottom=20 \\\
